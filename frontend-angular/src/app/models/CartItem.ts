@@ -1,0 +1,6 @@
+class CartItem {
+    
+    constructor() {
+        
+    }
+}
