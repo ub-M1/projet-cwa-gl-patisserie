@@ -15,6 +15,8 @@ import { ProductListComponent } from './pages/client-side/product-list/product-l
 import { OrdersComponent } from './pages/client-side/orders/orders.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { ListCommandesComponent } from './components/list-commandes/list-commandes.component';
+import { IconSquareComponent } from './components/icon-square/icon-square.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { RegisterComponent } from './pages/auth/register/register.component';
     RegisterComponent,
     ClientsListComponent,
     ProductsListComponent,
-    OrdersListComponent
+    OrdersListComponent,
+    ListCommandesComponent,
+    IconSquareComponent
   ],
   imports: [
     BrowserModule,
