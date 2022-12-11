@@ -1,0 +1,20 @@
+.list-commandes{
+    .card{
+        display: flex;
+        align-content: space-between;
+
+        &-information{
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            margin: 0 50px 0;
+        }
+
+        .purple-square{
+            background-color: #C8B2DA;
+            height: 85px;
+            width: 82px;
+            border-radius: 17px;
+        }
+    }
+}
