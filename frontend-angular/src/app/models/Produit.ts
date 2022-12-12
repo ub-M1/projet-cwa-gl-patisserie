@@ -1,11 +1,10 @@
 export class Product {
     _id: number | undefined;
+    designation: string| undefined;
     nom: string| undefined;
-    prix!: number;
+    prixunitaire!: number;
+    image: string| undefined;
+    quantitemax: any;
     description: string| undefined;
-    img: string| undefined;
-    categorie: any;
-    annee: number | string | undefined;
-    createdAt: Date | string | undefined;
-    updatedAt: Date | string | undefined;
+    categorie: string | undefined;
 }

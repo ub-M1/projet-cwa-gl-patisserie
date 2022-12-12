@@ -1,6 +1,11 @@
+import { CartItem } from "./CartItem";
 
 export class Cart {
     id!: number;
     total_price!: String;
-    cart_line!: [CartItem];
+    cart_item!: [CartItem];
+
+    constructor(){
+
+    }
 }
