@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-list-commandes',
-  templateUrl: './list-commandes.component.html',
-  styleUrls: ['./list-commandes.component.scss']
+  selector: 'app-orders-list',
+  templateUrl: './orders-list.component.html',
+  styleUrls: ['./orders-list.component.scss']
 })
-export class ListCommandesComponent implements OnInit {
+export class OrdersListComponent implements OnInit {
 
   icon = '../../../assets/icons/cutlery.png';
   listeCommandes = [
