@@ -1,7 +1,7 @@
 import { User } from "./User";
 
 export class Order{
-    _id: string | undefined;
+    _id: number | undefined;
     datecommande: Date | undefined
     adresse_livraison: string| undefined;
     etat!: boolean;
