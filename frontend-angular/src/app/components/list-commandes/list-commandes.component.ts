@@ -7,12 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCommandesComponent implements OnInit {
 
-  icon = 'icon/h';
+  icon = '../../../assets/icons/cutlery.png';
   listeCommandes = [
     {
       id: 2,
       date: '01/02/2023',
       prix: 20
+    },
+    {
+      id: 3,
+      date: '10/02/2023',
+      prix: 100
     }
   ];
 

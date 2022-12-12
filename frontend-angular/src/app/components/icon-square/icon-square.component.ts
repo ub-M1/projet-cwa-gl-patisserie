@@ -7,12 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IconSquareComponent implements OnInit {
 
-  //revisar si es mejor aqui inicializar o en el constructor
-  @Input() icon: string = "";
-  @Input() height: number = 80;
-  @Input() width: number = 80;
+  @Input() icon: string;
+  @Input() height: number;
+  @Input() width: number;
 
-  constructor() { }
+  constructor() {
+    this.icon = "";
+    this.height = 80;
+    this.width = 80;
+  }
 
   ngOnInit(): void {
   }
