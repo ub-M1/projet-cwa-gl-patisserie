@@ -1,1 +1,20 @@
-<p>cart works!</p>
+<div>
+    <div class="cart-line" *ngFor="let ci of cartData.cart_item" >
+        <div class="left-side">
+            <img [src]="ci.product.image" >
+            {{ci.product.designation}}
+        </div>
+
+        <div class="center">
+            <span (click)="add(ci.product)" >+</span> {{ci.quantite}} <span (click)="decrease(ci.product)">-</span>
+
+            <span>
+                {{ci.totalPrice()}}
+            </span>
+        </div>
+
+        <div class="right-side" (click)="remove(ci.product)">
+            x
+        </div>
+    </div>
+</div>

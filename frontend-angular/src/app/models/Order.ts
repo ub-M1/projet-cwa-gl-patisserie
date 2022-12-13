@@ -6,5 +6,5 @@ export class Order{
     adresse_livraison: string| undefined;
     etat!: boolean;
     client!: User;
-    ligne_commande!: [any]
+    ligne_commande!: any[]
 }
