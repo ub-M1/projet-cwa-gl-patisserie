@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
     font-family: 'Inter';
     src: url('assets/fonts/Inter-Regular.ttf') format('truetype');
@@ -40,3 +45,4 @@ h1{
 h2{
     font-size: 24px;
 }
+

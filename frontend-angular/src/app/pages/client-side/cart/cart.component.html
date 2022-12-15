@@ -1,1 +1,31 @@
-<p>cart works!</p>
+
+<h2>Panier</h2>
+<div>
+    <div class="cart-line" *ngFor="let ci of cartData.cart_item" >
+        <div class="left-side flex items-center">
+            <img [src]="ci.product.image" >
+            <span class=" mx-5 font-bold">
+               {{ci.product.designation}}
+               <br>
+               <span>€ {{ci.product.prixunitaire}}</span>
+            </span>
+        </div>
+
+        <div class="center flex items-center">
+            <app-add-decrease (onInc)="add(ci.product)" (onDec)="decrease(ci.product)" [value] = "ci.quantite"  class="my-10" ></app-add-decrease>
+
+
+            <span class="ml-10 font-bold" >
+                € {{ci.totalPrice()}} 
+            </span>
+        </div>
+
+        <div class="right-side flex items-center mr-10" (click)="remove(ci.product)">
+            x
+        </div>
+    </div>
+</div>
+
+<div>
+    <app-button (click)="checkout()" routerLink="/payement" [label]="'valider commande'"></app-button>
+</div>
