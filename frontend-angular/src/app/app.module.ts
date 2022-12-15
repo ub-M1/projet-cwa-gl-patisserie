@@ -15,6 +15,10 @@ import { ProductListComponent } from './pages/client-side/product-list/product-l
 import { OrdersComponent } from './pages/client-side/orders/orders.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { ButtonComponent } from './components/button/button.component';
+import { PayementComponent } from './pages/client-side/payement/payement.component';
+import { FormsModule } from '@angular/forms';
+import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,15 @@ import { RegisterComponent } from './pages/auth/register/register.component';
     RegisterComponent,
     ClientsListComponent,
     ProductsListComponent,
-    OrdersListComponent
+    OrdersListComponent,
+    ButtonComponent,
+    PayementComponent,
+    AddDecreaseComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

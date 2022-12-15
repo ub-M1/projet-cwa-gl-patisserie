@@ -22,7 +22,7 @@ export class CartComponent implements OnInit {
       designation: 'test',
       prixunitaire: 12,
       description: 'jdnckj',
-      image: 'http://sqjcndkj.png',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
       categorie: "je"
     }))
 
@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
       designation: 'test',
       prixunitaire: 12,
       description: 'jdnckj',
-      image: 'http://sqjcndkj.png',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
       categorie: "je"
     }))
       console.log(cartData);
@@ -48,6 +48,11 @@ export class CartComponent implements OnInit {
 
   remove(product: Product): void {
     this.cartService.remove(product);
+  }
+
+  checkout(){
+    // create Order
+    console.log("cart to checkout", this.cartService.cart.value)
   }
 
   ngOnInit(): void {

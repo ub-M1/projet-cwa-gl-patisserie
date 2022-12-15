@@ -27,6 +27,13 @@ export class Cart {
         return null;
     }
 
+    getCartItemCount(productId: number): number {
+        // a tester
+        let ci = this.getCartItem(productId)
+        if (ci) return ci.quantite
+        return 0
+    }
+
     addProduct(product : Product, qty = 1){
         let ci = this.getCartItem(product._id)
         if(ci != null){

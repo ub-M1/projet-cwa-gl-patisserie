@@ -1,20 +1,31 @@
+
+<h2>Panier</h2>
 <div>
     <div class="cart-line" *ngFor="let ci of cartData.cart_item" >
-        <div class="left-side">
+        <div class="left-side flex items-center">
             <img [src]="ci.product.image" >
-            {{ci.product.designation}}
-        </div>
-
-        <div class="center">
-            <span (click)="add(ci.product)" >+</span> {{ci.quantite}} <span (click)="decrease(ci.product)">-</span>
-
-            <span>
-                {{ci.totalPrice()}}
+            <span class=" mx-5 font-bold">
+               {{ci.product.designation}}
+               <br>
+               <span>€ {{ci.product.prixunitaire}}</span>
             </span>
         </div>
 
-        <div class="right-side" (click)="remove(ci.product)">
+        <div class="center flex items-center">
+            <app-add-decrease (onInc)="add(ci.product)" (onDec)="decrease(ci.product)" [value] = "ci.quantite"  class="my-10" ></app-add-decrease>
+
+
+            <span class="ml-10 font-bold" >
+                € {{ci.totalPrice()}} 
+            </span>
+        </div>
+
+        <div class="right-side flex items-center mr-10" (click)="remove(ci.product)">
             x
         </div>
     </div>
+</div>
+
+<div>
+    <app-button (click)="checkout()" routerLink="/payement" [label]="'valider commande'"></app-button>
 </div>
