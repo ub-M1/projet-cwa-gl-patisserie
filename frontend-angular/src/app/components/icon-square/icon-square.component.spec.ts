@@ -20,4 +20,9 @@ describe('IconSquareComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show icon', ()=>{
+    let icon = fixture.nativeElement.querySelector('img');
+    expect(icon).not.toBeNull();
+  })
 });

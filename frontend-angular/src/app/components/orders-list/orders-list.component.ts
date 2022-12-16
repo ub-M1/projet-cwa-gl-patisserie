@@ -1,29 +1,58 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/services/order.service';
+import { Order } from "../../models/Order";
 
 @Component({
-  selector: 'app-orders-list',
+  selector: 'app-order-list',
   templateUrl: './orders-list.component.html',
-  styleUrls: ['./orders-list.component.scss']
+  styleUrls: ['./orders-list.component.scss'],
+  providers: [OrderService]
 })
-export class OrdersListComponent implements OnInit {
+export class OrderListComponent implements OnInit {
 
   icon = '../../../assets/icons/cutlery.png';
-  listeCommandes = [
+  ordersList: Order[] = [
     {
-      id: 2,
-      date: '01/02/2023',
-      prix: 20
+      _id: '2',
+      datecommande: new Date('December 12'),
+      adresse_livraison: '',
+      etat: true,
+      client: {
+        id: 1,
+        nom: '',
+        prenom: '',
+        email: '',
+        username: ''
+      },
+      ligne_commande: {
+        prixachat: 120
+      }
     },
     {
-      id: 3,
-      date: '10/02/2023',
-      prix: 100
+      _id: '3',
+      datecommande: new Date('December 1'),
+      adresse_livraison: '',
+      etat: true,
+      client: {
+        id: 1,
+        nom: '',
+        prenom: '',
+        email: '',
+        username: ''
+      },
+      ligne_commande: {
+        prixachat: 120
+      }
     }
   ];
 
-  constructor() { }
+  constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
+    this.orderService.getAllOrders().subscribe(
+      (orders: Order[]) => {
+        this.ordersList = orders
+      });
   }
 
   getCommandes(){}
