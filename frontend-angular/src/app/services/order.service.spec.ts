@@ -42,13 +42,14 @@ describe('OrderService', () => {
         prixachat: 120
       }
     }];
+    const userId = '1';
     
-    service.getAllOrders().subscribe(orders => {
+    service.getAllOrders(userId).subscribe(orders => {
       expect(orders.length).toBe(1);
       expect(orders).toEqual(mockOrders);
     });
 
-    const request = httpMock.expectOne(`${service.URL}/all`);
+    const request = httpMock.expectOne(`${service.URL}/all?userId=${userId}`);
     expect(request.request.method).toBe('GET');
     request.flush(mockOrders);
   });

@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { of } from 'rxjs';
 
 import { OrderService } from '../../services/order.service';
 import { OrderListComponent } from './orders-list.component';
@@ -9,7 +8,6 @@ import { Order } from '../../models/Order';
 describe('OrdersListComponent', () => {
   let component: OrderListComponent;
   let fixture: ComponentFixture<OrderListComponent>;
-  let orderService: OrderService;
 
   const mockOrders: Order[] = [
     {
@@ -40,23 +38,11 @@ describe('OrdersListComponent', () => {
 
     fixture = TestBed.createComponent(OrderListComponent);
     component = fixture.componentInstance;
-    orderService = TestBed.inject(OrderService);
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should set orders in list from service', (done) => {
-    const getAllOrdersSpy = spyOn(orderService, 'getAllOrders')
-      .and.returnValue(of(mockOrders));
-    fixture.detectChanges();
-
-    orderService.getAllOrders().subscribe(()=>{
-      expect(getAllOrdersSpy).toHaveBeenCalled();
-      done();
-    });
   });
 
   it('should show title of the component', ()=>{

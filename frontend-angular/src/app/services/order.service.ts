@@ -12,8 +12,11 @@ export class OrderService {
 
   URL = 'https://api-cwa.up.railway.app/getCommandes';
 
-  getAllOrders(): Observable<Order[]>{
-    return this.httpClient.get<Order[]>(this.URL+'/all')
+  getAllOrders(userId: string): Observable<Order[]>{
+    let params = new HttpParams().set('userId', userId);
+    return this.httpClient.get<Order[]>(this.URL+'/all', {
+      params
+    });
   }
 
   getOrder(orderId: string): Observable<Order>{
