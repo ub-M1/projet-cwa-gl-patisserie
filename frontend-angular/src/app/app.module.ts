@@ -19,6 +19,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { PayementComponent } from './pages/client-side/payement/payement.component';
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
+import { ProfileComponent } from './pages/client-side/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AddDecreaseComponent } from './components/add-decrease/add-decrease.com
     OrdersListComponent,
     ButtonComponent,
     PayementComponent,
-    AddDecreaseComponent
+    AddDecreaseComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
