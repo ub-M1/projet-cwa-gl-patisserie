@@ -13,7 +13,7 @@ export class OrdersComponent implements OnInit {
   userId = '1';
   ordersList: Order[] = [
     {
-      _id: '2',
+      _id: 2,
       datecommande: new Date('December 12'),
       adresse_livraison: '',
       etat: true,
@@ -22,14 +22,16 @@ export class OrdersComponent implements OnInit {
         nom: '',
         prenom: '',
         email: '',
-        username: ''
+        username: '',
+        role: '',
+        token: ''
       },
       ligne_commande: {
         prixachat: 120
       }
     },
     {
-      _id: '3',
+      _id: 3,
       datecommande: new Date('December 1'),
       adresse_livraison: '',
       etat: true,
@@ -38,7 +40,9 @@ export class OrdersComponent implements OnInit {
         nom: '',
         prenom: '',
         email: '',
-        username: ''
+        username: '',
+        role: '',
+        token: ''
       },
       ligne_commande: {
         prixachat: 120

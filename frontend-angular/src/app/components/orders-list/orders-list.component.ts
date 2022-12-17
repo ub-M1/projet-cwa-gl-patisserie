@@ -16,7 +16,7 @@ export class OrderListComponent implements OnInit {
   constructor() { 
     this.ordersList = [
       {
-        _id: '2',
+        _id: 2,
         datecommande: new Date('December 12'),
         adresse_livraison: '',
         etat: true,
@@ -25,7 +25,9 @@ export class OrderListComponent implements OnInit {
           nom: '',
           prenom: '',
           email: '',
-          username: ''
+          username: '',
+          role: '',
+          token: ''
         },
         ligne_commande: {
           prixachat: 120
