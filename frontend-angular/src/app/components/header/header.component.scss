@@ -1,0 +1,19 @@
+.header{
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    .left{
+
+    }
+    .right{
+        ul{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+            li{
+                margin: 5px;
+            }
+        }
+    }
+    
+}

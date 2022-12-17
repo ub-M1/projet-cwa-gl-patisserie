@@ -19,6 +19,10 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { OrderListComponent } from './components/orders-list/orders-list.component';
 import { IconSquareComponent } from './components/icon-square/icon-square.component';
 import { OrderService } from './services/order.service';
+import { ButtonComponent } from './components/button/button.component';
+import { PayementComponent } from './pages/client-side/payement/payement.component';
+import { FormsModule } from '@angular/forms';
+import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 
 @NgModule({
   declarations: [
@@ -36,12 +40,16 @@ import { OrderService } from './services/order.service';
     ProductsListComponent,
     OrdersListComponent,
     OrderListComponent,
-    IconSquareComponent
+    IconSquareComponent,
+    ButtonComponent,
+    PayementComponent,
+    AddDecreaseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]
