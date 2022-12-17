@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/client-side/home/home.component';
 import { OrdersComponent } from './pages/client-side/orders/orders.component';
 import { PayementComponent } from './pages/client-side/payement/payement.component';
 import { ProductDetailsComponent } from './pages/client-side/product-details/product-details.component';
+import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -12,10 +13,7 @@ const routes: Routes = [
   { path: "cart", component: CartComponent},
   { path: "payement", component: PayementComponent},
   { path: "my-orders", component: OrdersComponent},
-
-
-  
-
+  { path: "admin/orders", component: OrdersListComponent}
 ];
 
 @NgModule({
