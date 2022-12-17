@@ -12,6 +12,6 @@
         <p > {{product.description}} </p>
 
         
-        <app-add-decrease (onInc)="addOne()" (onDec)="removeOne()" [value] = "cart.getCartItemCount(product._id)"  class="my-10" ></app-add-decrease>
+        <app-add-decrease (onInc)="addOne()" (onDec)="removeOne()" [item] = "cart.getCartItem(product._id)"  class="my-10" ></app-add-decrease>
     </div>
 </div>

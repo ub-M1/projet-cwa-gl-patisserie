@@ -15,4 +15,8 @@ export class CartItem {
     totalPrice(){
         return this.product.prixunitaire * this.quantite
     }
+
+    isMaxQtyReached(): boolean{
+        return this.quantite == this.product.quantitemax
+    }
 }
