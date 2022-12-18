@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@use './assets/scss/variables' as var;
 
 @tailwind base;
 @tailwind components;
@@ -33,9 +34,13 @@ $bold: 700;
 *{
     padding: 0;
     margin: 0;
-    font-family: $primary-font;
-    font-weight: $regular;
+    font-family:var.$primary-font;
+    font-weight: var.$regular;
     font-size: 18px;
+}
+
+body{
+    padding: 20px;
 }
 
 h1{

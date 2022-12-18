@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/Inter-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+//colors
+$purple-color: #C8B2DA;
+$background-grey: rgb(239, 239, 239, 0.42);
+$font-grey: #979797;
+
+//primary font
+$primary-font: 'Inter';
+
+//font-weight
+$regular: 400;
+$bold: 700;
