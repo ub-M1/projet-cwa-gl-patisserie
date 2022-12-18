@@ -34,7 +34,7 @@ export class Cart {
         return 0
     }
 
-    addProduct(product : Product, qty = 1){
+    addProduct(product : Product){
         // cette fonctionne ajoute un produit au panier
         //  Si le produit était déja dans le panier on incrémente a quantité avec qty. Par défault qty = 1. Mais lors de l'appel de la fonction on peu spécifier la quantité qu'on veut.
         //  Si la quantité est fournie laors on n'incrémente pas mais on met qty comme quantité
@@ -44,7 +44,7 @@ export class Cart {
                 ci.quantite ++;
             }
         } else{
-            this.cart_item.push(new CartItem(product, qty))
+            this.cart_item.push(new CartItem(product))
         }
     }
 

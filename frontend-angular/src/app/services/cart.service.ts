@@ -14,8 +14,12 @@ export class CartService {
 
   constructor() {}
 
-  add(product: Product, qty = 1) {
-    this.cart.value.addProduct(product, qty);
+  add(product: Product) {
+    this.cart.value.addProduct(product);
+  }
+
+  addMany(product: Product, qty:  number) {
+    this.cart.value.setQuantity(product, qty);
   }
 
   decrease(product: Product) {
