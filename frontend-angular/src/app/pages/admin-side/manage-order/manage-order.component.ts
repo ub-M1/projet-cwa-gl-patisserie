@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OrderLineService } from '../../../services/order-line.service';
-import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-order-detail',
-  templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.scss']
+  selector: 'app-manage-order',
+  templateUrl: './manage-order.component.html',
+  styleUrls: ['./manage-order.component.scss']
 })
-export class OrderDetailComponent implements OnInit {
+export class ManageOrderComponent implements OnInit {
 
   orderId: number = 0;
   productsOrder: any[] = [];

@@ -12,6 +12,12 @@
         <p>€{{product.idProduit.prixunitaire * product.quantite}}</p>
     </div>
     <div>
+        <select name="state" id="state">
+            <option value="en-cours">En cours</option>
+            <option value="delivered">Livrée</option>
+            <option value="cancel">Anulée</option>
+        </select>
+        <button>Changer état</button>
         <button (click)="goBack()">Retour</button>
         <button>Annuler Commande</button>
     </div>

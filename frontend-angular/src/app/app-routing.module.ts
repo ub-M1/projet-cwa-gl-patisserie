@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './pages/client-side/product-details/pro
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
 import { OrderDetailComponent } from './pages/client-side/order-detail/order-detail.component';
+import { ManageOrderComponent } from './pages/admin-side/manage-order/manage-order.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: "admin/orders", component: OrdersListComponent},
   { path: "order-detail/:id", component: OrderDetailComponent},
   { path: "profile", component: ProfileComponent},
-  { path: "admin/orders", component: OrdersListComponent}
+  { path: "admin/orders", component: OrdersListComponent},
+  { path: "admin/manage-order/:id", component: ManageOrderComponent}
 ];
 
 @NgModule({

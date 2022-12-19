@@ -25,6 +25,7 @@ import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 import { OrderDetailComponent } from './pages/client-side/order-detail/order-detail.component';
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
+import { ManageOrderComponent } from './pages/admin-side/manage-order/manage-order.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ProfileComponent } from './pages/client-side/profile/profile.component'
     PayementComponent,
     AddDecreaseComponent,
     OrderDetailComponent,
-    ProfileComponent
+    ProfileComponent,
+    ManageOrderComponent
   ],
   imports: [
     BrowserModule,

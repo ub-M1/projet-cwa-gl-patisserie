@@ -11,6 +11,7 @@ import { Order } from "../../../models/Order";
 export class OrdersComponent implements OnInit {
 
   userId = '1';
+  link = '/order-detail';
   ordersList: Order[] = [
     {
       _id: 2,
