@@ -17,7 +17,6 @@ const routes: Routes = [
   { path: "cart", component: CartComponent},
   { path: "payement", component: PayementComponent},
   { path: "my-orders", component: OrdersComponent},
-<<<<<<< HEAD
   { path: "admin/orders", component: OrdersListComponent},
   
   //Routes pouyr authentification
@@ -25,12 +24,7 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "register", component: RegisterComponent},
   
-  
-
-=======
   { path: "profile", component: ProfileComponent},
-  { path: "admin/orders", component: OrdersListComponent}
->>>>>>> b0cac6fb8c817a01e58311a6dc0f6c56cbd937ef
 ];
 
 @NgModule({
