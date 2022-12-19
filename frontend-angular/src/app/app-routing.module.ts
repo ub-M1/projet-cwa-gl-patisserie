@@ -7,13 +7,22 @@ import { PayementComponent } from './pages/client-side/payement/payement.compone
 import { ProductDetailsComponent } from './pages/client-side/product-details/product-details.component';
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
 
+import { LoginComponent } from './pages/auth/login/login.component';
+
 const routes: Routes = [
   { path: "", component: HomeComponent},
   { path: "product/:id", component: ProductDetailsComponent},
   { path: "cart", component: CartComponent},
   { path: "payement", component: PayementComponent},
   { path: "my-orders", component: OrdersComponent},
-  { path: "admin/orders", component: OrdersListComponent}
+  { path: "admin/orders", component: OrdersListComponent},
+  
+  //Routes pouyr authentification
+  
+  { path: "login", component: LoginComponent},
+  
+  
+
 ];
 
 @NgModule({

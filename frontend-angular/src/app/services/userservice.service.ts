@@ -1,8 +1,13 @@
+
+
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject } from 'rxjs';
 import { Cart } from '../models/Cart';
 import { User } from '../models/User';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
     providedIn: 'root'
@@ -10,7 +15,7 @@ import { User } from '../models/User';
 
   export class UserService {
 
-    constructor() { }
+    constructor(private http: HttpClient) { }
   
     users:User[] = [
       {
@@ -35,6 +40,11 @@ import { User } from '../models/User';
       
       }
     ];
+
+
+  login(username: string, password: string): Observable<any> {
+    return this.http.post<any>('/api/login', { username, password });
+  }
 
 
     }

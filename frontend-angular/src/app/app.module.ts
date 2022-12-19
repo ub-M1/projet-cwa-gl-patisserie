@@ -24,6 +24,11 @@ import { PayementComponent } from './pages/client-side/payement/payement.compone
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
