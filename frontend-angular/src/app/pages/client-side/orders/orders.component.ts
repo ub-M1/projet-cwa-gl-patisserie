@@ -23,6 +23,7 @@ export class OrdersComponent implements OnInit {
         prenom: '',
         email: '',
         username: '',
+        password:'',
         role: '',
         token: ''
       },
@@ -41,6 +42,7 @@ export class OrdersComponent implements OnInit {
         prenom: '',
         email: '',
         username: '',
+        password:'',
         role: '',
         token: ''
       },
