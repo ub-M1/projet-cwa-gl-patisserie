@@ -14,19 +14,20 @@ export class CartService {
 
   constructor() {}
 
-  add(product: Product, qty = 1) {
-    this.cart.value.addProduct(product, qty);
-    // this.update()
+  add(product: Product) {
+    this.cart.value.addProduct(product);
+  }
+
+  addMany(product: Product, qty:  number) {
+    this.cart.value.setQuantity(product, qty);
   }
 
   decrease(product: Product) {
     this.cart.value.decreaseProduct(product)
-    // this.update()
   }
 
   remove(product: Product){
     this.cart.value.removeProduct(product);
-    // this.update();
   }
 
   clear(){
@@ -35,20 +36,10 @@ export class CartService {
 
   update(){
     console.log(this.cart.value);
-    // this.cart.next(this.localCart);
   }
 
   totalPrice(){
     return this.cart.value.getTotalPrice()
   }
 
-
-
-
-  // submitCheckout(userId, cart) {
-  //   return this._api.postTypeRequest('orders/create', {
-  //     userId: userId,
-  //     cart: cart,
-  //   });
-  // }
 }
