@@ -1,0 +1,15 @@
+<div class="client-profile">
+    <div class="client-profile__header">
+        <app-icon-square [height]=80 [width]=80 [icon]="icon"></app-icon-square>
+        <h1 class="client-profile__title">{{client.prenom}} {{client.nom}}</h1>
+    </div>
+    <div class="client-profile__info">
+        <h2 class="client-profile__prenom">Prénom</h2>
+        <p>{{client.prenom}}</p>
+        <h2 class="client-profile__nom">Nom</h2>
+        <p>{{client.nom}}</p>
+        <h2 class="client-profile__email">Email</h2>
+        <p>{{client.email}}</p>
+    </div>
+    <button class="client-profile__button">Modifier</button>
+</div>

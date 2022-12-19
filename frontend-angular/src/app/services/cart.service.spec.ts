@@ -54,9 +54,10 @@ describe('CartService', () => {
       prixunitaire: 12,
       description: 'jdnckj',
       image: 'http://sqjcndkj.png',
-      categorie: "je"
+      categorie: "je",
+      quantitemax: 50
     });
-    service.add(p, 10)
+    service.addMany(p, 10)
 
     expect(service.cart.value.cart_item.length).toEqual(1);
     expect(service.cart.value.getCount()).toEqual(1);

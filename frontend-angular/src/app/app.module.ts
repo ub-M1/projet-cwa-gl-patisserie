@@ -24,6 +24,7 @@ import { PayementComponent } from './pages/client-side/payement/payement.compone
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 import { OrderDetailComponent } from './pages/client-side/order-detail/order-detail.component';
+import { ProfileComponent } from './pages/client-side/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { OrderDetailComponent } from './pages/client-side/order-detail/order-det
     ButtonComponent,
     PayementComponent,
     AddDecreaseComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
