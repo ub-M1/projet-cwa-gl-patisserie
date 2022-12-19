@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderLineService } from 'src/app/services/order-line.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -8,13 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class OrderDetailComponent implements OnInit {
 
   orderId: number = 1;
-  productsOrder: LigneCommande = {};
+  productsOrder: any[] = [];
 
-  constructor(private ligneCommandeService: LigneCommandeService) { }
+  constructor(private orderLineService: OrderLineService) { }
 
   ngOnInit(): void {
-    this.ligneCommandeService.getProductsByOrderId(this.orderId).subscribe(
-      (productsOrder: LigneCommande[]) => {
+    this.orderLineService.getOrderLinesByOrderId(this.orderId).subscribe(
+      (productsOrder: any[]) => {
         this.productsOrder = productsOrder
       }
     )
