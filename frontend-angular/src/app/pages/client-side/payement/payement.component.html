@@ -1,0 +1,46 @@
+<div class="flex justify-evenly ">
+    <div class="card">
+        <h1 class="font-bold" >Detail expedition</h1>
+
+        <form>
+            <label> Nom Prénom: </label>
+            <input type="text" [(ngModel)]="adresseData.fullname" name="adress"> <br>
+
+            <label> Tél: </label>
+            <input type="text" [(ngModel)]="adresseData.tel" name="adress"> <br>
+
+            <label> Email: </label>
+            <input type="text" [(ngModel)]="adresseData.email" name="adress"> <br>
+
+            <label> Adresse: </label>
+            <input type="text" [(ngModel)]="adresseData.adresse" name="adress"> <br>
+
+            <label> Code postal: </label> 
+            <input type="number" [(ngModel)]="adresseData.codePostal" name="code"><br>
+
+            <label>Ville:</label>
+            <input type="text" [(ngModel)]="adresseData.ville" name="ville">
+
+            <br>
+          </form>
+    </div>
+
+    <div class="card">
+        <h1 class="font-bold" >Paiement</h1>
+
+        <form>
+            <label> Numéro de carte : </label>
+            <input type="text" [(ngModel)]="payemenData.cardNumber" name="adress"> <br>
+
+            <label> Date d'expiration: </label>
+            <input type="text" [(ngModel)]="payemenData.exp" name="adress"> <br>
+
+            <label> Cvc: </label>
+            <input type="text" [(ngModel)]="payemenData.cvc" name="adress"> <br>
+
+            <br>
+
+            <app-button [label]="'Effectuer paiement'" (click)="onSubmit()" ></app-button>
+          </form>
+    </div>
+</div>

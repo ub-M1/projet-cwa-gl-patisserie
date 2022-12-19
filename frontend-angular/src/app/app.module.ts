@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ClientsListComponent } from './pages/admin-side/clients-list/clients-list.component';
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
@@ -15,6 +16,14 @@ import { ProductListComponent } from './pages/client-side/product-list/product-l
 import { OrdersComponent } from './pages/client-side/orders/orders.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
+import { OrderListComponent } from './components/orders-list/orders-list.component';
+import { IconSquareComponent } from './components/icon-square/icon-square.component';
+import { OrderService } from './services/order.service';
+import { ButtonComponent } from './components/button/button.component';
+import { PayementComponent } from './pages/client-side/payement/payement.component';
+import { FormsModule } from '@angular/forms';
+import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
+import { ProfileComponent } from './pages/client-side/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +39,21 @@ import { RegisterComponent } from './pages/auth/register/register.component';
     RegisterComponent,
     ClientsListComponent,
     ProductsListComponent,
-    OrdersListComponent
+    OrdersListComponent,
+    OrderListComponent,
+    IconSquareComponent,
+    ButtonComponent,
+    PayementComponent,
+    AddDecreaseComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
