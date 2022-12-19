@@ -22,7 +22,6 @@ export class OrdersListComponent implements OnInit {
         prenom: '',
         email: '',
         username: '',
-        password:'',
         role: '',
         token: ''
       },

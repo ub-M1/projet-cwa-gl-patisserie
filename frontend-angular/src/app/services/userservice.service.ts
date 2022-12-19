@@ -25,7 +25,6 @@ import { Observable } from 'rxjs';
         prenom: 'd',
         email:'dupont@gmaail.com',
         username: 'dupont',
-        password:'testdupont',
         role: 'admin',
         token:'mytoken1'
       },
@@ -37,7 +36,6 @@ import { Observable } from 'rxjs';
         email:'bob@gmaail.com',
         username: 'bob',
         role: 'client',
-        password:'testbob',
         token:'mytoken2'
       
       }
