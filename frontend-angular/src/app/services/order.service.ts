@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Order } from "../models/Order";
 
 @Injectable({
@@ -10,19 +10,17 @@ export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  URL = 'https://api-cwa.up.railway.app/getCommandes';
+  URL = 'https://api-cwa.up.railway.app/';
 
-  getAllOrders(userId: string): Observable<Order[]>{
-    let params = new HttpParams().set('userId', userId);
-    return this.httpClient.get<Order[]>(this.URL+'/all', {
-      params
-    });
+  getAllOrders(): Observable<Order[]>{
+    return this.httpClient.get<Order[]>(`${this.URL}getComande/all/all`);
   }
 
-  getOrder(orderId: string): Observable<Order>{
-    let params = new HttpParams().set('orderId', orderId);
-    return this.httpClient.get<Order>(this.URL, {
-      params
-    });
+  getOrderById(orderId: number): Observable<Order>{
+    return this.httpClient.get<Order>(`${this.URL}getComande/byId/${orderId}`);
+  }
+
+  getOrdersByClientId(clientId: number): Observable<Order[]>{
+    return this.httpClient.get<Order[]>(`${this.URL}getComande/byIdClient/${clientId}`);
   }
 }

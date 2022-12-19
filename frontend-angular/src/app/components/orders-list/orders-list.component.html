@@ -3,9 +3,9 @@
     <div [routerLink]="[]" class="card" *ngFor="let order of ordersList">
         <app-icon-square [height]=85 [width]=82 [icon]="icon"></app-icon-square>
         <div class="card-information">
-            <h2 class="card-information__id">Commande #{{order._id}}</h2>
+            <h2 class="card-information__id">Commande #{{order.idCommande}}</h2>
             <p class="card-information__date">{{order.datecommande}}</p>
-            <p class="card-information__price">{{order.ligne_commande.prixachat}} €</p>
+            <p class="card-information__price">- €</p>
         </div>
         <div class="right-chevron">
             <img src="../../../assets/icons/right-chevron.png" />

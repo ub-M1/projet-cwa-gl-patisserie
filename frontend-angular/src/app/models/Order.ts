@@ -1,12 +1,9 @@
 import { User } from "./User";
 
 export class Order{
-    _id: number | undefined;
+    idCommande: number | undefined;
     datecommande: Date | undefined
-    adresse_livraison: string| undefined;
+    adresseLivraison: string| undefined;
     etat!: boolean;
-    client!: User;
-    ligne_commande!: {
-        prixachat: number 
-    }
+    idClient!: User;
 }
