@@ -16,7 +16,7 @@ describe('OrdersListComponent', () => {
       idCommande: 2,
       datecommande: new Date('December 12'),
       adresseLivraison: '',
-      etat: true,
+      etat: 'En cours',
       idClient: {
         id: 1,
         nom: '',

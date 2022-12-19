@@ -15,25 +15,6 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) { 
     this.cartService.cart.subscribe((cartData) => {
       this.cartData = cartData;
-
-
-    this.cartData.addProduct(new Product({
-      id:1,
-      designation: 'test',
-      prixunitaire: 12,
-      description: 'jdnckj',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
-      categorie: "je"
-    }))
-
-    this.cartData.addProduct(new Product({
-      id:2,
-      designation: 'test',
-      prixunitaire: 12,
-      description: 'jdnckj',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
-      categorie: "je"
-    }))
       console.log(cartData);
     });
   }
