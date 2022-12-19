@@ -11,10 +11,10 @@ describe('OrdersListComponent', () => {
 
   const mockOrders: Order[] = [
     {
-      idCommande: 2,
-      datecommande: new Date('December 12'),
-      adresseLivraison: '',
-      etat: 'En cours',
+      id: 2,
+      date: new Date('December 12'),
+      address: '',
+      state: 'En cours',
       idClient: {
         id: 1,
         nom: '',
@@ -60,9 +60,9 @@ describe('OrdersListComponent', () => {
     let date = fixture.nativeElement.querySelector('.card-information__date').textContent;
     let state = fixture.nativeElement.querySelector('.card-information__state').textContent;
 
-    expect(id).toContain('Commande #'+mockOrders[0].idCommande);
-    expect(date).toContain(mockOrders[0].datecommande);
-    expect(state).toContain(mockOrders[0].etat);
+    expect(id).toContain('Commande #'+mockOrders[0].id);
+    expect(date).toContain(mockOrders[0].date);
+    expect(state).toContain(mockOrders[0].state);
   })
 
   it('should show chevron', ()=>{

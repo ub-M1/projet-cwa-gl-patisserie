@@ -8,11 +8,28 @@ describe('OrderService', () => {
   let service: OrderService;
   let httpMock: HttpTestingController;
 
-  const mockOrders: Order[] = [{
-    idCommande: 2,
-    datecommande: new Date('December 12'),
-    adresseLivraison: '',
-    etat: 'En cours',
+  const mockOrders: Order[] = [ 
+    new Order({
+      id: 2,
+      date: new Date('December 12'),
+      address: '',
+      state: 'En cours',
+      idClient: {
+        id: 1,
+        nom: '',
+        prenom: '',
+        email: '',
+        username: '',
+        role: '',
+        token: ''
+      }
+    })
+  ];
+  const mockOrder: Order = new Order ({
+    id: 2,
+    date: new Date('December 12'),
+    address: '',
+    state: 'En cours',
     idClient: {
       id: 1,
       nom: '',
@@ -22,22 +39,7 @@ describe('OrderService', () => {
       role: '',
       token: ''
     }
-  }];
-  const mockOrder: Order = {
-    idCommande: 2,
-    datecommande: new Date('December 12'),
-    adresseLivraison: '',
-    etat: 'En cours',
-    idClient: {
-      id: 1,
-      nom: '',
-      prenom: '',
-      email: '',
-      username: '',
-      role: '',
-      token: ''
-    }
-  };
+  });
   const clientId = 1;
   const orderId = 2;
 

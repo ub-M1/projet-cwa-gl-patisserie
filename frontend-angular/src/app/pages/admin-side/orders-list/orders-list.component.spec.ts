@@ -13,10 +13,10 @@ describe('OrdersListComponent', () => {
 
   const mockOrders: Order[] = [
     {
-      idCommande: 2,
-      datecommande: new Date('December 12'),
-      adresseLivraison: '',
-      etat: 'En cours',
+      id: 2,
+      date: new Date('December 12'),
+      address: '',
+      state: 'En cours',
       idClient: {
         id: 1,
         nom: '',
