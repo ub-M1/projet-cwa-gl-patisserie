@@ -25,6 +25,7 @@ import { Observable } from 'rxjs';
         prenom: 'd',
         email:'dupont@gmaail.com',
         username: 'dupont',
+        password:'testdupont',
         role: 'admin',
         token:'mytoken1'
       },
@@ -36,6 +37,7 @@ import { Observable } from 'rxjs';
         email:'bob@gmaail.com',
         username: 'bob',
         role: 'client',
+        password:'testbob',
         token:'mytoken2'
       
       }
@@ -47,5 +49,9 @@ import { Observable } from 'rxjs';
   }
 
 
-    }
+  register(id:number,nom:string,prenom:string,email:string,username:string,role:string,password:string):Observable<any>{
+    return this.http.post<any>('/api/register',{id,nom,prenom,email,username,role,password})
+  }
+}
+    
   

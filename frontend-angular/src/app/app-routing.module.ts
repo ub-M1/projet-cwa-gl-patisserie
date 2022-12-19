@@ -8,6 +8,7 @@ import { ProductDetailsComponent } from './pages/client-side/product-details/pro
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
 
 import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   //Routes pouyr authentification
   
   { path: "login", component: LoginComponent},
+  { path: "register", component: RegisterComponent},
   
   
 
