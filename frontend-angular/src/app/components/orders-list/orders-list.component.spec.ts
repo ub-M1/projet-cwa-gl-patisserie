@@ -14,7 +14,7 @@ describe('OrdersListComponent', () => {
       idCommande: 2,
       datecommande: new Date('December 12'),
       adresseLivraison: '',
-      etat: true,
+      etat: 'En cours',
       idClient: {
         id: 1,
         nom: '',
@@ -58,11 +58,11 @@ describe('OrdersListComponent', () => {
   it('should show card information', ()=>{
     let id = fixture.nativeElement.querySelector('.card-information__id').textContent;
     let date = fixture.nativeElement.querySelector('.card-information__date').textContent;
-    let price = fixture.nativeElement.querySelector('.card-information__price').textContent;
+    let state = fixture.nativeElement.querySelector('.card-information__state').textContent;
 
     expect(id).toContain('Commande #'+mockOrders[0].idCommande);
     expect(date).toContain(mockOrders[0].datecommande);
-    // expect(price).toContain(mockOrders[0].ligne_commande.prixachat);
+    expect(state).toContain(mockOrders[0].etat);
   })
 
   it('should show chevron', ()=>{

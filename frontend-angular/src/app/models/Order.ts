@@ -4,6 +4,6 @@ export class Order{
     idCommande: number | undefined;
     datecommande: Date | undefined
     adresseLivraison: string| undefined;
-    etat!: boolean;
+    etat!: string;
     idClient!: User;
 }
