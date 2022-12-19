@@ -1,0 +1,18 @@
+<div>
+    <div>
+        <h1>Commande #{{orderId}}</h1>
+        <h1>Total: {{productsOrder[0].prixachat}}</h1>
+    </div>
+    <div *ngFor="let product of productsOrder">
+        <img src="{{product.idProduit.image}}">
+        <p>{{product.idProduit.designation}}</p>
+        <p>€{{product.idProduit.prixunitaire}}</p>
+        <p>Quantité</p>
+        <p>{{product.quantite}}</p>
+        <p>€{{totalPriceProduct()}}</p>
+    </div>
+    <div>
+        <button>Retour</button>
+        <button>Annuler Commande</button>
+    </div>
+</div>

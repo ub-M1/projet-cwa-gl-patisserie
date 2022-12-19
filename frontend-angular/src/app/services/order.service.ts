@@ -10,7 +10,7 @@ export class OrderService {
 
   constructor(private httpClient: HttpClient) { }
 
-  URL = 'https://api-cwa.up.railway.app/getCommandes';
+  URL = 'https://api-cwa.up.railway.app/';
 
   getAllOrders(userId: string): Observable<Order[]>{
     let params = new HttpParams().set('userId', userId);
@@ -21,7 +21,7 @@ export class OrderService {
 
   getOrder(orderId: string): Observable<Order>{
     let params = new HttpParams().set('orderId', orderId);
-    return this.httpClient.get<Order>(this.URL, {
+    return this.httpClient.get<Order>(this.URL+'/getComande/byId/'+orderId, {
       params
     });
   }
