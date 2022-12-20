@@ -1,6 +1,8 @@
 
-<span>
-    <span class="font-bold cursor-pointer" (click)="onDecrease()">-</span>
-    <span class="mx-2" >{{getCount()}} <span *ngIf="item && item.isMaxQtyReached()" class="mx-2 text-xs " >Max !</span> </span>
-    <span class="font-bold cursor-pointer"  (click)="onIncrease()" >+</span> 
+<span class="" >
+    <span class="minus-wraper cursor-pointer txt wp" (click)="onDecrease()">-</span>
+    <span class="count-wraper txt wp" > {{getCount()}}
+        <span *ngIf="item && item.isMaxQtyReached()" class="" >Max !</span>
+    </span>
+    <span class="plus-wraper cursor-pointer txt wp"  (click)="onIncrease()" >+</span> 
 </span>

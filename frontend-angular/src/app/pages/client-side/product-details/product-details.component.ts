@@ -37,4 +37,8 @@ export class ProductDetailsComponent implements OnInit {
     this.cartService.decrease(this.product!)
   }
 
+  addToCart(){
+    
+  }
+
 }
