@@ -1,24 +1,22 @@
-<div>
-    <div>
-        <h1>Commande #{{orderId}}</h1>
-        <h1>Total: €{{productsOrder[0].prixachat}}</h1>
+<div class="detail">
+    <div class="detail-header">
+        <h1 class="detail-header__title">Commande #{{orderId}}</h1>
+        <!-- <h1 class="detail-header__total">Total: €{{productsOrder[0].prixachat}}</h1> -->
     </div>
-    <div *ngFor="let product of productsOrder">
-        <img src="{{product.idProduit.image}}">
-        <p>{{product.idProduit.designation}}</p>
-        <p>€{{product.idProduit.prixunitaire}}</p>
-        <p>Quantité</p>
-        <p>{{product.quantite}}</p>
-        <p>€{{product.idProduit.prixunitaire * product.quantite}}</p>
+    <div class="detail-info" *ngFor="let product of productsOrder">
+        <img class="detail-info__image" src="{{product.idProduit.image}}">
+        <p class="detail-info__name">{{product.idProduit.designation}}</p>
+        <p class="detail-info__price">€{{product.idProduit.prixunitaire}}</p>
+        <p class="detail-info__quantity-title">Quantité</p>
+        <p class="detail-info__quantity">{{product.quantite}}</p>
+        <p class="detail-info__price-product">€{{product.idProduit.prixunitaire * product.quantite}}</p>
     </div>
-    <div>
-        <select name="state" id="state">
-            <option value="en-cours">En cours</option>
-            <option value="delivered">Livrée</option>
-            <option value="cancel">Anulée</option>
+    <div class="detail-actions">
+        <select name="state" [(ngModel)]="selectedOption">
+            <option [value]="option" *ngFor="let option of options">{{option}}</option>
         </select>
-        <button>Changer état</button>
-        <button (click)="goBack()">Retour</button>
-        <button>Annuler Commande</button>
+        <button class="detail-actions__change-state" (click)="changeState(selectedOption)">Changer état</button>
+        <button class="detail-actions__return" (click)="goBack()">Retour</button>
+        <button class="detail-actions__cancel">Annuler Commande</button>
     </div>
 </div>

@@ -12,6 +12,12 @@ export class ManageOrderComponent implements OnInit {
 
   orderId: number = 0;
   productsOrder: any[] = [];
+  selectedOption: string = 'En cours';
+  options: string[] = [
+    "En cours",
+    "Livrée",
+    "Anulée"
+  ];
 
   constructor(private orderLineService: OrderLineService, private route: ActivatedRoute, private location: Location) { }
 
@@ -27,6 +33,10 @@ export class ManageOrderComponent implements OnInit {
 
   goBack(){
     this.location.back();
+  }
+
+  changeState(option: any){
+    this.selectedOption =  option;
   }
 
 }
