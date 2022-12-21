@@ -1,17 +1,20 @@
 
 
-<div id="main" *ngIf="product" class="flex justify-evenly p-10" >
+<div id="main"  *ngIf="product" class="flex justify-evenly p-10" >
     <div>
         <img id="img" [src]="product.image" alt="">
     </div>
 
     <div class="flex flex-col">
         <span id="name" class="font-bold" > {{product.designation}} </span>
-        <span id="pu" > {{product.prixunitaire}} </span>
+        <span class="mt-2" id="pu" > € {{product.prixunitaire}} </span>
 
-        <p > {{product.description}} </p>
+        <p  class="mt-5"> {{product.description}} </p>
 
         
         <app-add-decrease id="action" (onInc)="addOne()" (onDec)="removeOne()" [item] = "cart.getCartItem(product._id)"  class="my-10" ></app-add-decrease>
+
+    <app-button *ngIf="cart.getCartItem(product._id)" (click)="addToCart()" [label]="'Ajouter au panier'"></app-button>
+
     </div>
 </div>
