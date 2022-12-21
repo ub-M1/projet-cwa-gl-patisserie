@@ -1,1 +1,35 @@
-<p>product-list works!</p>
+<input type="text" [(ngModel)]="searchTerm" (keyup)="search()">
+<button (click)="search()">Rechercher</button>
+
+<select [(ngModel)]="selectedProduct">
+  <option *ngFor="let product of products" [value]="product">{{product.name}}</option>
+</select>
+<div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" (keyup)="search()">
+    <button (click)="search()">Rechercher</button>
+  
+    <select [(ngModel)]="selectedProduct">
+      <option *ngFor="let product of products" [value]="product">{{product.name}}</option>
+    </select>
+  
+    <div *ngFor="let product of products">
+      {{product.name}}
+    </div>
+  </div>
+  <div *ngFor="let product of products">
+    {{product.name}}
+  </div>
+
+  <div class="search-container">
+    <input type="text" [(ngModel)]="searchTerm" (keyup)="search()">
+    <button (click)="search()">Rechercher</button>
+  
+    <select [(ngModel)]="selectedProduct">
+      <option *ngFor="let product of products" [value]="product">{{product.name}}</option>
+    </select>
+  
+    <div *ngFor="let product of products">
+      {{product.name}}
+    </div>
+  </div>
+  
