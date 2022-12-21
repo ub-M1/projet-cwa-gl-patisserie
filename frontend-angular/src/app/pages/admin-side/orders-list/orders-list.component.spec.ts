@@ -23,10 +23,10 @@ describe('OrdersListComponent', () => {
         prenom: '',
         email: '',
         username: '',
-        password:'',
+       // password:'',
         role: '',
         
-        role:"",
+        //role:"",
         token:""
       },
       ligne_commande: {
