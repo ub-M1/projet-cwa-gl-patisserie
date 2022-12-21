@@ -7,11 +7,19 @@ import { Product } from '../models/Produit';
 })
 export class ApiService {
 
-  public BASE_URL = "https://api-cwa.up.railway.app/"
+  public BASE_URL = "https://api-cwa.up.railway.app"
 
   constructor(private httpClient: HttpClient) { }
 
   getProduct(id: any) {
-    return this.httpClient.get<Product>({$getProduit/detail/9}");
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`);
+  }
+
+  postOrder(order: any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/addCommande`, order);
+  }
+
+  addLigneCommande(ligneCommande: any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/addLigCommande`, ligneCommande);
   }
 }

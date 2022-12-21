@@ -14,7 +14,7 @@
         
         <app-add-decrease id="action" (onInc)="addOne()" (onDec)="removeOne()" [item] = "cart.getCartItem(product._id)"  class="my-10" ></app-add-decrease>
 
-    <app-button (click)="addToCart()" routerLink="/payement" [label]="'Ajouter au panier'"></app-button>
+    <app-button *ngIf="cart.getCartItem(product._id)" (click)="addToCart()" [label]="'Ajouter au panier'"></app-button>
 
     </div>
 </div>
