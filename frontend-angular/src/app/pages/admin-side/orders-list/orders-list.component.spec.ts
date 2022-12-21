@@ -13,21 +13,18 @@ describe('OrdersListComponent', () => {
 
   const mockOrders: Order[] = [
     {
-      _id: 3,
-      datecommande: new Date('December 12'),
-      adresse_livraison: '',
-      etat: true,
-      client: {
+      id: 2,
+      date: new Date('December 12'),
+      address: '',
+      state: 'En cours',
+      idClient: {
         id: 1,
         nom: '',
         prenom: '',
         email: '',
         username: '',
-        role:"",
-        token:""
-      },
-      ligne_commande: {
-        prixachat: 120
+        role: '',
+        token: ''
       }
     },
   ];
@@ -50,12 +47,11 @@ describe('OrdersListComponent', () => {
   });
 
   it('should get orders from service', (done) => {
-    const userId = '1';
     const getAllOrdersSpy = spyOn(orderService, 'getAllOrders')
       .and.returnValue(of(mockOrders));
     fixture.detectChanges();
 
-    orderService.getAllOrders(userId).subscribe(()=>{
+    orderService.getAllOrders().subscribe(()=>{
       expect(getAllOrdersSpy).toHaveBeenCalled();
       done();
     });

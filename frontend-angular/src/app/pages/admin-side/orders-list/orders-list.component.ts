@@ -9,32 +9,13 @@ import { Order } from "../../../models/Order";
 })
 export class OrdersListComponent implements OnInit {
 
-  userId = '1';
-  ordersList: Order[] = [
-    {
-      _id: 2,
-      datecommande: new Date('December 12'),
-      adresse_livraison: '',
-      etat: true,
-      client: {
-        id: 1,
-        nom: '',
-        prenom: '',
-        email: '',
-        username: '',
-        role: '',
-        token: ''
-      },
-      ligne_commande: {
-        prixachat: 120
-      }
-    }
-  ];
+  userId = 1;
+  ordersList: Order[] = [];
 
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    this.orderService.getAllOrders(this.userId).subscribe(
+    this.orderService.getAllOrders().subscribe(
       (orders: Order[]) => {
         this.ordersList = orders
     });
