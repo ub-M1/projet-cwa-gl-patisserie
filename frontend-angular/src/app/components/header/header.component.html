@@ -1,12 +1,22 @@
 <div class="header">
    <div class="left">
-        <a routerLink="/">Home</a>
+        <span routerLink="/">Home</span>
    </div>
 
    <div class="right">
     <ul>
         <li class="menu-item has-children">
-            <a routerLink="/cart">Panier</a>
+            <span routerLink="/cart">
+                <div class="bg-white rounded-full border-slate-300 border text-center w-12 h-12 p-3 cursor-pointer">
+                    <img src="{{cartIcon}}"/>
+                </div>
+            </span>
+        </li>
+        <li>
+            <a routerLink="/profile">Compte</a>
+        </li>
+        <li>
+            <a routerLink="/my-orders">Activité</a>
         </li>
     </ul>
 </div>
