@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/Produit';
 
@@ -6,18 +7,19 @@ import { Product } from '../models/Produit';
 })
 export class ApiService {
 
-  constructor() { }
+  public BASE_URL = "https://api-cwa.up.railway.app"
+
+  constructor(private httpClient: HttpClient) { }
 
   getProduct(id: any) {
-    return new Product({
-      id: id,
-      designation: 'test',
-      prixunitaire: 12,
-      description: 'jdnckj',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
-      categorie: "je",
-      quantitemax: 5
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`);
+  }
 
-    })
+  postOrder(order: any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/addCommande`, order);
+  }
+
+  addLigneCommande(ligneCommande: any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/addLigCommande`, ligneCommande);
   }
 }

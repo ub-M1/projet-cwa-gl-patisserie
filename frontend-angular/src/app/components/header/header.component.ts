@@ -7,6 +7,7 @@ import { UserService } from 'src/app/services/userservice.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  cartIcon = "../../../assets/icons/cart.png"
 
   constructor(public userService: UserService) { }
 
