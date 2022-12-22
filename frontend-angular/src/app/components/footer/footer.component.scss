@@ -10,7 +10,7 @@
     //padding: 10px 10px 0px 10px;
     width: 82%;
     height: 40px;
-    position: absolute;
+    position: auto;
     bottom: 0;
     //left: 0;
     text-align: center;  
@@ -78,4 +78,7 @@ tr{
 
 .marge{
     margin-top: 10px;
+}
+.outside{
+    background-color: rgb(230, 227, 227);
 }
