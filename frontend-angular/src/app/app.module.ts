@@ -24,6 +24,18 @@ import { PayementComponent } from './pages/client-side/payement/payement.compone
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
+import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
+
+
+import {  ReactiveFormsModule } from '@angular/forms';
+
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -45,13 +57,16 @@ import { ProfileComponent } from './pages/client-side/profile/profile.component'
     ButtonComponent,
     PayementComponent,
     AddDecreaseComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignupUpPageComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+   ReactiveFormsModule
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]

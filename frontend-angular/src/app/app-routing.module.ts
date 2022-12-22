@@ -8,14 +8,47 @@ import { ProductDetailsComponent } from './pages/client-side/product-details/pro
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
 
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
+
+
+import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
+
+
+
+
+
+
 const routes: Routes = [
   { path: "", component: HomeComponent},
   { path: "product/:id", component: ProductDetailsComponent},
   { path: "cart", component: CartComponent},
   { path: "payement", component: PayementComponent},
   { path: "my-orders", component: OrdersComponent},
+  { path: "admin/orders", component: OrdersListComponent},
+  
+  //Routes pour authentification
+  
+  { path: "login", component: LoginComponent},
+  { path: "login/:redirect", component: LoginComponent},
+
+  { path: "register", component: RegisterComponent},
+  
   { path: "profile", component: ProfileComponent},
-  { path: "admin/orders", component: OrdersListComponent}
+
+
+//Routes pour authentification nouvelle version
+
+
+{path:"login2", component:LoginPageComponent},
+{path:"signup2", component:SignupUpPageComponent},
+
+
+
+
+
 ];
 
 @NgModule({

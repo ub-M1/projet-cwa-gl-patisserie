@@ -1,0 +1,36 @@
+.card{
+    padding: 10px;
+    width: 35%;
+
+    background: rgba(239, 239, 239, 0.42);
+    border-radius: 17px;
+
+    padding: 35px;
+}
+
+input{
+    
+    margin-bottom: 5px;
+    background: #FFFFFF;
+    border-radius: 17px;
+    height: 52.32px;
+    margin-bottom: 25px;
+
+    width: 100%;
+}
+
+label{
+    margin-bottom: 5px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #979797;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+}

@@ -5,18 +5,29 @@
 
    <div class="right">
     <ul>
+        
+
+        <li *ngIf="userService.isAuth()" class="menu-item has-children">
+            <a routerLink="/profile">{{userService.user!.username}}</a>
+        </li>
+
+        <li *ngIf="userService.isAuth()" class="menu-item has-children">
+            <a routerLink="/login">Logout</a>
+        </li>
+        <li *ngIf="!userService.isAuth()" class="menu-item has-children">
+            <a routerLink="/login">Login</a>
+        </li>
+        
+        <li>
+            <a routerLink="/my-orders">Activité</a>
+        </li>
+
         <li class="menu-item has-children">
             <span routerLink="/cart">
                 <div class="bg-white rounded-full border-slate-300 border text-center w-12 h-12 p-3 cursor-pointer">
                     <img src="{{cartIcon}}"/>
                 </div>
             </span>
-        </li>
-        <li>
-            <a routerLink="/profile">Compte</a>
-        </li>
-        <li>
-            <a routerLink="/my-orders">Activité</a>
         </li>
     </ul>
 </div>

@@ -2,13 +2,13 @@ body{
     background: white;
    }
    #container{
-    width:600px;
+    width:400px;
     margin:0 auto;
     margin-top:10%;
     
    }
    /* Bordered form */
-   .form {
+   form {
     width:100%;
     padding: 30px;
     border: 1px solid #f1f1f1;
@@ -45,4 +45,10 @@ body{
     background-color: white;
     color: #53af57;
     border: 1px solid #53af57;
+   }
+
+   a {
+    color: rgb(30, 57, 144);
+    
+    
    }

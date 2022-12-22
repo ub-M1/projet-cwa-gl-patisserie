@@ -1,1 +1,20 @@
-<p>login works!</p>
+
+ <div id="container">
+ <!-- zone de connexion -->
+ 
+    <div class="form">
+        <h1>Connexion</h1>
+        
+        <label><b>Username:</b></label>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required  [(ngModel)]="username">
+
+        <label><b>Mot de passe:</b></label>
+        <input type="password" placeholder="Entrer le mot de passe" name="password" required [(ngModel)]="password">
+
+        <div class="flex flex-col items-center justify-center my-10 ">
+            <app-button (click)="login()" [label]="'Se connecter'"></app-button>
+            <app-button class="mt-5" routerLink="/register" [clear]="true" label="S'inscrire"></app-button>
+        </div>
+    </div>
+ </div>
+ 
