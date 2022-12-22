@@ -15,7 +15,15 @@ import { Observable } from 'rxjs';
 
   export class UserService {
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { 
+      this.shareduser.subscribe((user) => {
+        this.user = user
+      })
+    }
+
+    public shareduser : BehaviorSubject<User|undefined> = new BehaviorSubject<User|undefined>(undefined);
+
+    user: User | undefined;
   
     users:User[] = [
       {
@@ -41,14 +49,25 @@ import { Observable } from 'rxjs';
       }
     ];
 
+  URL = 'https://api-cwa.up.railway.app';
+
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>('/api/login', { username, password });
+    return this.http.get<any>(this.URL+'/login/'+username+'/auth/'+password);
   }
 
 
   register(id:number,nom:string,prenom:string,email:string,username:string,role:string,password:string):Observable<any>{
-    return this.http.post<any>('/api/register',{id,nom,prenom,email,username,role,password})
+    return this.http.post<any>('/register',{id,nom,prenom,email,username,role,password})
+  }
+
+  setUser(user: User){
+    this.user = user
+    console.log('this.user :>> ', this.user);
+  }
+
+  isAuth(){
+    return this.user !== undefined
   }
 }
     

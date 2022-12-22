@@ -5,6 +5,12 @@
 
    <div class="right">
     <ul>
+        <li *ngIf="userService.isAuth()" class="menu-item has-children">
+            <a routerLink="/profile">{{userService.user!.username}}</a>
+        </li>
+        <li *ngIf="!userService.isAuth()" class="menu-item has-children">
+            <a routerLink="/login">Login</a>
+        </li>
         <li class="menu-item has-children">
             <a routerLink="/cart">Panier</a>
         </li>

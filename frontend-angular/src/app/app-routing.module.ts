@@ -32,6 +32,8 @@ const routes: Routes = [
   //Routes pour authentification
   
   { path: "login", component: LoginComponent},
+  { path: "login/:redirect", component: LoginComponent},
+
   { path: "register", component: RegisterComponent},
   
   { path: "profile", component: ProfileComponent},

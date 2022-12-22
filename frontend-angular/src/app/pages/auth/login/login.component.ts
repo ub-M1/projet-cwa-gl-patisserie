@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice.service';
 
 
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
 username :string="";
 password :string="";
 
-constructor(private userService: UserService, private router: Router) { }
+constructor(private userService: UserService, private router: Router, private route:ActivatedRoute,) { }
 
 
 
@@ -30,23 +30,31 @@ login()
 {
 
 this.userService.login(this.username,this.password).subscribe({
-  next: data => {
+  next: user => {
       console.log("login succes");
-      this.gotoNextPage();
+      this.userService.setUser(user)
+        this.gotoNextPage(user.role)
+      
   },
   error: error => {
      
       console.error('There was an error!', error);
-    this.gotoNextPage();
   }
 })
 
 }
 
 
-gotoNextPage(){ 
+gotoNextPage(role: string){
 
-  this.router.navigateByUrl('');
+  if(role=="CLIENT"){
+    let nextPage = this.route.snapshot.paramMap.get('redirect') || ''
+    this.router.navigateByUrl(nextPage);
+  } else {
+    this.router.navigateByUrl('admin/orders')
+  }
+
+
 }
 
 
