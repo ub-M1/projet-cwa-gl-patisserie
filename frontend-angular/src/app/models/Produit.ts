@@ -15,4 +15,5 @@ export class Product {
         this.image = p.image;
         this.categorie = p.categorie;
     }
+  
 }

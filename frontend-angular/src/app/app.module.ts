@@ -23,7 +23,12 @@ import { ButtonComponent } from './components/button/button.component';
 import { PayementComponent } from './pages/client-side/payement/payement.component';
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
+import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
+import { RouterModule, Routes } from '@angular/router';
+const Rout: Routes=[
 
+  {path:'Ajout',component: AjoutProduitComponent }
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,13 +48,16 @@ import { AddDecreaseComponent } from './components/add-decrease/add-decrease.com
     IconSquareComponent,
     ButtonComponent,
     PayementComponent,
-    AddDecreaseComponent
+    AddDecreaseComponent,
+    AjoutProduitComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(Rout), 
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]
