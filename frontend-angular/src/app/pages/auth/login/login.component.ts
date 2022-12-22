@@ -58,7 +58,7 @@ getClient(user: any)
 
 this.userService.getClient(user.idUser).subscribe({
   next: client => {
-      this.userService.setCLient(client)
+      this.userService.setCLient(client[0])
       this.gotoNextPage(user.role)
       
   },

@@ -48,29 +48,6 @@ import { Observable } from 'rxjs';
     user: User | undefined;
     client: User | undefined;
   
-    users:User[] = [
-      {
-        
-        id: 1,
-        nom: 'Dupont',
-        prenom: 'd',
-        email:'dupont@gmaail.com',
-        username: 'dupont',
-        role: 'admin',
-        token:'mytoken1'
-      },
-    
-      {
-        id: 2,
-        nom: 'Bob',
-        prenom: 'b',
-        email:'bob@gmaail.com',
-        username: 'bob',
-        role: 'client',
-        token:'mytoken2'
-      
-      }
-    ];
 
   URL = 'https://api-cwa.up.railway.app';
 
@@ -110,7 +87,7 @@ import { Observable } from 'rxjs';
   }
 
   getClient(idUser: any){
-    return this.http.get<any>(this.URL+'/getClient/'+idUser);
+    return this.http.get<any>(this.URL+'/getClientByUser/'+idUser);
   }
 
   getUser(){

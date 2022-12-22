@@ -52,6 +52,8 @@ export class HomeComponent implements OnInit {
 
   categories: Category[] = []
 
+  currentCategory: Category = {idCategorie: 0, nomcategorie:"Meilleures ventes"}
+
   constructor(private apiService: ApiService, private router: Router) {
     this.getProducts()
 
@@ -102,5 +104,22 @@ export class HomeComponent implements OnInit {
 
   productBySearch(){
     return this.produitsList.filter((p) => p.designation?.toLowerCase().includes(this.searchterm.toLowerCase()))
+  }
+
+  filterbycat(cat: Category){
+    this.currentCategory = cat
+    this.apiService.getProducstByCategory(cat).subscribe(
+      (response)=>{
+        console.log('response :>> ', response);
+        this.produitsList = response.map( (product: any) =>{
+          let p: Product = new Product(product)
+          p.image = "assets/images/image1.jpg"
+          return p;
+        })
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
   }
 }

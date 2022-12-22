@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/models/Category';
 import { Product } from 'src/app/models/Produit';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,6 +12,10 @@ import { ApiService } from 'src/app/services/api.service';
 
 
 export class ProductListComponent implements OnInit {
+
+  @Input() list: Product[] = []
+  @Input() category: Category | undefined = undefined
+
   produitsList: Product[] = []
 
   searchterm =""
@@ -18,7 +23,7 @@ export class ProductListComponent implements OnInit {
   searchResult: Product[] = []
 
   constructor(private apiService: ApiService, private router: Router) {
-    this.getProducts()
+    //this.getProducts()
 
    }
 
@@ -32,29 +37,14 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getProducts(){
-    this.apiService.getProductsList().subscribe(
-      (response)=>{
-        console.log('response :>> ', response);
-        this.produitsList = response.map( (product: any) =>{
-          let p: Product = new Product(product)
-          p.image = "assets/images/image1.jpg"
-          return p;
-        })
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
-  }
-
   gotodetail(p:Product){
     this.router.navigateByUrl('product/'+p._id)
   }
 
   productBySearch(){
-    return this.produitsList.filter((p) => p.designation?.toLowerCase().includes(this.searchterm.toLowerCase()))
+    return this.list.filter((p) => p.designation?.toLowerCase().includes(this.searchterm.toLowerCase()))
   }
+  
 }
 
  

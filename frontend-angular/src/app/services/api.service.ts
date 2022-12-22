@@ -26,6 +26,10 @@ export class ApiService {
     return this.httpClient.get<Category[]>(`${this.BASE_URL}/getCategory`);
   }
 
+  getProducstByCategory(cat: Category) {
+    return this.httpClient.get<Category[]>(`${this.BASE_URL}/getProduit/byCategory/${cat.nomcategorie}`);
+  }
+
   getProduct(id: any) {
     return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`);
   }
