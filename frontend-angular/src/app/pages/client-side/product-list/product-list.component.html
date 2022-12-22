@@ -1,1 +1,16 @@
-<p>product-list works!</p>
+<div class="wrapper " >
+  <div class="flex flex-row justify-between p-10">
+    <h1 class="font-bold">Produits</h1>
+    <input class="searchbar" [(ngModel)]="searchterm" type="text">
+  </div>
+  <div class="grid grid-cols-4 gap-4 ">
+    <div *ngFor="let p of productBySearch()" class="cursor-pointer card flex flex-col p-2 m-5"  (click)="gotodetail(p)">
+      <img [src]="p.image" alt="">
+      <div class="flex justify-between mt-2">
+        <span class="font-bold">{{p.designation}}</span>
+        <span class="font-bold">€ {{p.prixunitaire}}</span>
+      </div>
+    </div>
+  </div>
+ 
+</div>
