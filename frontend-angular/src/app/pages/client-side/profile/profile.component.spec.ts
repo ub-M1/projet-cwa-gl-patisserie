@@ -14,7 +14,8 @@ describe('ProfileComponent', () => {
     email:'nom@gmail.com',
     username: 'username',
     role: 'admin',
-    token:'mytoken1'
+    token:'mytoken1',
+    tel: ""
   }
 
   beforeEach(async () => {

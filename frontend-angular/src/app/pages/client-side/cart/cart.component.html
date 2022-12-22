@@ -1,12 +1,17 @@
 
 <div class="wrapper">
     <div class="text-[32px] flex justify-between" >
-        <h2 class=" m-2 font-bold" >Panier</h2>
+        <h1 class=" m-2 font-bold" >Panier</h1>
         <div>
             <span class= "m-2 font-bold text-[32px] " >Total: </span> <span class="text-[32px]"> € {{cartData.getTotalPrice()}} </span>
         </div>
     </div>
-    <div>
+
+    <div class="flex justify-center m-5" *ngIf="cartData.getCount() == 0" >
+        Vous n'avez aucun produit dans votre panier
+
+    </div>
+    <div *ngIf="cartData.getCount() != 0">
         <div class="cart-line" *ngFor="let ci of cartData.cart_item" >
             <div class="left-side flex items-center">
                 <img [src]="ci.product.image" >
@@ -30,8 +35,10 @@
                 x
             </div>
         </div>
+
+        <div class="flex justify-center" >
+            <app-button (click)="checkout()" [label]="'valider commande'"></app-button>
+        </div>
     </div>
 
-<div>
-    <app-button (click)="checkout()" [label]="'valider commande'"></app-button>
-</div>
+

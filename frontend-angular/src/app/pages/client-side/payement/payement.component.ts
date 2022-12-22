@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-payement',
@@ -45,6 +46,8 @@ export class PayementComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
+        
   }
 
   checkout(){
@@ -53,13 +56,24 @@ export class PayementComponent implements OnInit {
 
   postOrder(){
     let order = {
-      "datecommande": Date.now().toString(),
-      "adresseLivraison": `${this.adresseData.fullname}|${this.adresseData.email}|${this.adresseData.tel}|${this.adresseData.codePostal}|${this.adresseData.ville}`,
-      "etat": "cours",
-      "idClient": {
-        "idClient": 2
+        "datecommande": Date.now().toString(),
+        "adresseLivraison": `${this.adresseData.fullname}|${this.adresseData.email}|${this.adresseData.tel}|${this.adresseData.codePostal}|${this.adresseData.ville}`,
+        "etat": "cours",
+        "idClient": {
+          "idClient": 2
+        }
+    }
+
+    Swal.fire({
+      title: 'En cours de traitement',
+      html: "Patientez s'il vous plais",
+      allowEscapeKey: false,
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading(null)
       }
-  }
+    });
+  
     this.apiService.postOrder(order).subscribe(
       (response) => {                           //Next callback
         console.log('response received')
@@ -93,12 +107,28 @@ export class PayementComponent implements OnInit {
         console.log('response :>> ', response);
         this.ordercount++
         if(this.ordercount == this.cartService.cart.value.getCount()){
-          alert("commande validee avec success")
+          Swal.fire({
+            title: 'Succes!',
+            text: 'Commande validee avec success',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
           this.router.navigateByUrl('my-orders')
+
+          Swal.hideLoading()
         }
       },
       (error) => {//Error callback
         console.error('error caught in component', error)
+
+        Swal.hideLoading()
+
+        Swal.fire({
+          title: 'Echec',
+          text: "Une erreur s'est produite",
+          icon: 'error',
+          confirmButtonText: 'Ok'
+        })
       })
     });
     

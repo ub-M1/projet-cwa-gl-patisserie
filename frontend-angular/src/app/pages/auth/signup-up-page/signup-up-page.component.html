@@ -12,15 +12,10 @@
        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
 
          <div>
-            <label for="userId">userId</label>
-            <input  formControlName="userId" type="text" placeholder="Entrer l'ID"  required >
-           <label for="username">username</label>
+          <label for="username">username</label>
           <input  formControlName="username" type="text" placeholder="Entrer le nom d'utilisateur" required >
            <label for="password">password</label>
            <input  formControlName="password" type="password" placeholder="Entrer le mot de passe"  required >
-           <label for="role">role:</label>
-           <input  formControlName="role" type="text" placeholder="Entrer votre rôle"  required >
-          
          </div>
 
          <div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/userservice.service';
 import { User } from '../../../models/User';
 
 @Component({
@@ -9,19 +10,17 @@ import { User } from '../../../models/User';
 export class ProfileComponent implements OnInit {
 
   icon = '../../../assets/icons/user.png';
-  client: User = {
-    id: 1,
-    nom: 'nom',
-    prenom: 'prenom',
-    email:'nom@gmail.com',
-    username: 'username',
-    role: 'admin',
-    token:'mytoken1'
-  }
+  client: User | undefined;
+  user: User | undefined;
 
-  constructor() { }
+  constructor(private userService: UserService) {
+    this.client = this.userService.client
+    this.user = this.userService.user
+    console.log('this.client :>> ', this.client);
+   }
 
   ngOnInit(): void {
+
   }
 
 }
