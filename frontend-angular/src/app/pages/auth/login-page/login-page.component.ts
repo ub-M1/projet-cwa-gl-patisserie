@@ -29,21 +29,9 @@ export class LoginPageComponent implements OnInit {
     })
   }
   login(){
-    this.http.get<any>("https://api-cwa.up.railway.app/login/{username}/auth/{password}")
+    this.http.get<any>(`https://api-cwa.up.railway.app/login/${this.loginForm.value.username}/auth/${this.loginForm.value.password}`)
     .subscribe(res=>{
-      const user = res.find((a:any)=>{
-        //return a.email === this.loginForm.value.username && a.password === this.loginForm.value.password 
-        return a.username === this.loginForm.value.username && a.password === this.loginForm.value.password 
-    
-    
-      });
-      if(user){
-        alert('Login Succesful');
-        this.loginForm.reset()
-      this.router.navigate(["Home"])
-      }else{
-        alert("user not found")
-      }
+      this.router.navigateByUrl('')
     },err=>{
       alert("Something went wrong")
     })

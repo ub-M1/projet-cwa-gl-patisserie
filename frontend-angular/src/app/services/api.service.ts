@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Category } from '../models/Category';
 import { Product } from '../models/Produit';
 
 @Injectable({
@@ -19,6 +20,10 @@ export class ApiService {
 
   getProductsList() {
     return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/all/all`);
+  }
+
+  getCategories() {
+    return this.httpClient.get<Category[]>(`${this.BASE_URL}/getCategory`);
   }
 
   getProduct(id: any) {

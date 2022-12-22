@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Category } from 'src/app/models/Category';
 import { Product } from 'src/app/models/Produit';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -49,6 +50,8 @@ export class HomeComponent implements OnInit {
 
   searchResult: Product[] = []
 
+  categories: Category[] = []
+
   constructor(private apiService: ApiService, private router: Router) {
     this.getProducts()
 
@@ -62,6 +65,7 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit(): void {
+    this.getCategories()
   }
 
   getProducts(){
@@ -73,6 +77,18 @@ export class HomeComponent implements OnInit {
           p.image = "assets/images/image1.jpg"
           return p;
         })
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+  }
+
+  getCategories(){
+    this.apiService.getCategories().subscribe(
+      (response)=>{
+        console.log('response :>> ', response);
+        this.categories = response
       },
       (error) => {
         console.error(error)

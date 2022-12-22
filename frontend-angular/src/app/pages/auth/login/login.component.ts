@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice.service';
+import Swal from 'sweetalert2'
 
 
 
@@ -33,12 +34,44 @@ this.userService.login(this.username,this.password).subscribe({
   next: user => {
       console.log("login succes");
       this.userService.setUser(user)
-        this.gotoNextPage(user.role)
+      this.getClient(user)
       
   },
   error: error => {
      
       console.error('There was an error!', error);
+
+      Swal.fire({
+        title: 'Echec',
+        text: "Le nom d'utilisateur ou le mot de passe n'est pas correcte. Vous pouvez créer un compte si vous n'en n'avez pas!",
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
+  }
+})
+
+}
+
+
+getClient(user: any)
+{
+
+this.userService.getClient(user.idUser).subscribe({
+  next: client => {
+      this.userService.setCLient(client)
+      this.gotoNextPage(user.role)
+      
+  },
+  error: error => {
+     
+      console.error('There was an error!', error);
+
+      Swal.fire({
+        title: 'Echec',
+        text: "Aucun client trouvé",
+        icon: 'error',
+        confirmButtonText: 'Ok'
+      })
   }
 })
 

@@ -64,4 +64,8 @@ export class CartService {
     return this.cart.value.getTotalPrice()
   }
 
+  count(){
+    return this.cart.value.getCount();
+  }
+
 }

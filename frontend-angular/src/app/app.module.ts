@@ -29,6 +29,7 @@ import { LoginPageComponent } from './pages/auth/login-page/login-page.component
 
 
 import {  ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './pages/contact/contact.component';
 
 
 
@@ -59,7 +60,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
     AddDecreaseComponent,
     ProfileComponent,
     SignupUpPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

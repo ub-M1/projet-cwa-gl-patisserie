@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
     email:'nom@gmail.com',
     username: 'username',
     role: 'admin',
-    token:'mytoken1'
+    token:'mytoken1',
   }
 
   constructor() { }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
@@ -8,10 +10,16 @@ import { UserService } from 'src/app/services/userservice.service';
 })
 export class HeaderComponent implements OnInit {
   cartIcon = "../../../assets/icons/cart.png"
+  logoutIcon = "../../../assets/icons/user.png"
 
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, private router: Router, public cartService: CartService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.userService.logout()
+    this.router.navigateByUrl('login')
   }
 
 }

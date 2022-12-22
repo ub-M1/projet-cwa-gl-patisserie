@@ -1,4 +1,4 @@
-<div class="client-profile">
+<!-- <div class="client-profile">
     <div class="client-profile__header">
         <app-icon-square [height]=80 [width]=80 [icon]="icon"></app-icon-square>
         <h1 class="client-profile__title">{{client.prenom}} {{client.nom}}</h1>
@@ -12,4 +12,54 @@
         <p>{{client.email}}</p>
     </div>
     <button class="client-profile__button">Modifier</button>
-</div>
+</div> -->
+
+
+<div class="flex justify-evenly  ">
+    <div class="card flex flex-col justify-center ">
+        <h1 class="font-bold m-5 text-center" > {{client.nom}} {{client.prenom}} </h1>
+        <form  >
+  
+          <div class="flex justify-between " >
+            <div class="input flex-1">
+                <label> Nom: </label> 
+                <input type="text" [(ngModel)]="client.nom" name="code"><br>
+            </div>
+        
+            <div class="mx-10" ></div>
+        
+            <div class="input flex-1">
+                <label>Prénom:</label>
+                <input type="text" [(ngModel)]="client.prenom" name="ville">
+            </div>
+        </div>
+        
+          <!-- <div class="input">
+              <label> Téléphone: </label>
+              <input type="text" [(ngModel)]="client.tel" name="adress"> <br>
+          </div> -->
+        
+          <div class="input">
+              <label> Email: </label>
+              <input type="text" [(ngModel)]="client.email" name="adress"> <br>
+          </div>
+        
+          <div class="input">
+            <label> Username: </label>
+            <input type="text" [(ngModel)]="client.username" name="adress"> <br>
+          </div>
+        
+          <!-- <div class="input">
+              <label> Mot de passe: </label>
+              <input type="text" [(ngModel)]="password" type="password" name="adress"> <br>
+          </div> -->
+        
+        
+          <br>
+        </form>
+  
+        
+    </div>
+  </div>
+  
+  
