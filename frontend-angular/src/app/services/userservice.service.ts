@@ -57,8 +57,12 @@ import { Observable } from 'rxjs';
   }
 
 
-  register(id:number,nom:string,prenom:string,email:string,username:string,role:string,password:string):Observable<any>{
-    return this.http.post<any>('/register',{id,nom,prenom,email,username,role,password})
+  addClient(nom:string,prenom:string,email:string,tel:string, idUser: any):Observable<any>{
+    return this.http.post<any>(this.URL+'/addClient',{nom, prenom, email, tel, idUser})
+  }
+
+  createUser(username: string, password: string, role: string){
+    return this.http.post<any>(this.URL+'/addUser',{username, password, role})
   }
 
   setUser(user: User){

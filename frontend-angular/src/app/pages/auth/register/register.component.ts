@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
@@ -16,33 +16,48 @@ export class RegisterComponent implements OnInit {
   email :string="";
   username :string="";
   password :string="";
-  role:string="";
+  role:string="CLIENT";
+  tel: string="";
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private route:ActivatedRoute) { }
   ngOnInit(): void {
   }
 
-  login()
-  {
-  
-  this.userService.register(this.id,this.nom,this.prenom,this.email,this.username,this.password,this.role).subscribe({
-    next: data => {
-        console.log("user registered with succes");
+ 
+
+  createUser(){
+
+    this.userService.createUser(this.username,this.password,this.role).subscribe({
+      next: data => {
+          console.log("user registered with succes");
+          this.createClient({idUser: data});
+      },
+      error: error => {
+         
+          console.error('There was an error!', error);
+      }
+    })
+  }
+
+  createClient(userId: any){
+    this.userService.addClient(this.nom, this.prenom, this.email, this.tel, userId).subscribe({
+      next: data => {
+          console.log("user registered with succes", data);
+          this.userService.setUser(data)
+          this.gotoNextPage()
+      },
+      error: error => {
+         
+          console.error('There was an error!', error);
         this.gotoNextPage();
-    },
-    error: error => {
-       
-        console.error('There was an error!', error);
-      this.gotoNextPage();
-    }
-  })
-  
+      }
+    })
   }
   
   
   gotoNextPage(){ 
-  
-    this.router.navigateByUrl('');
+    // let nextPage = this.route.snapshot.paramMap.get('redirect') || ''
+    this.router.navigateByUrl("login");
   }
 
 

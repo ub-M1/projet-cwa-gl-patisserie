@@ -1,33 +1,50 @@
-<form class="form-signin"  >
-    <h1 class="h3 mb-3 fw-normal">Register</h1>
-    <div>
+<div class="flex justify-evenly  ">
+  <div class="card flex flex-col justify-center ">
+      <h1 class="font-bold m-5 text-center" >S'inscrire</h1>
+      <form  >
 
-      <label for="floatingInput">id</label>
-      <input  id="floatingId"  [(ngModel)]="id">
-
-      <label for="floatingInput">Name</label>
-      <input  id="floatingName"  [(ngModel)]="nom">
-
-      <label for="floatingInput">Surname</label>
-      <input  id="floatingSurname"  [(ngModel)]="prenom">
-
-      <label for="floatingInput">email</label>
-      <input  id="floatingemail"  [(ngModel)]="email">
-
-      <label for="floatingInput">username</label>
-      <input  id="floatingusername"  [(ngModel)]="username">
-
-      <label for="floatingInput">password</label>
-      <input  id="floatingpassword" type="password" [(ngModel)]="password">
-
-      <label for="floatingInput">role</label>
-      <input  id="floatingrole"  [(ngModel)]="role">
+        <div class="flex justify-between " >
+          <div class="input flex-1">
+              <label> Nom: </label> 
+              <input type="text" [(ngModel)]="nom" name="code"><br>
+          </div>
       
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-      <br>
-      <br>
+          <div class="mx-10" ></div>
+      
+          <div class="input flex-1">
+              <label>Prénom:</label>
+              <input type="text" [(ngModel)]="prenom" name="ville">
+          </div>
+      </div>
+      
+        <div class="input">
+            <label> Téléphone: </label>
+            <input type="text" [(ngModel)]="tel" name="adress"> <br>
+        </div>
+      
+        <div class="input">
+            <label> Email: </label>
+            <input type="text" [(ngModel)]="email" name="adress"> <br>
+        </div>
+      
+        <div class="input">
+          <label> Username: </label>
+          <input type="text" [(ngModel)]="username" name="adress"> <br>
+        </div>
+      
+        <div class="input">
+            <label> Mot de passe: </label>
+            <input type="text" [(ngModel)]="password" type="password" name="adress"> <br>
+        </div>
+      
+      
+        <br>
+      </form>
 
+      <div class="flex flex-col items-center justify-center my-10 ">
+        <app-button (click)="createUser()" label="S'inscrire"></app-button>
+        <app-button class="mt-5" routerLink="/login" [clear]="true" label="Se connecter"></app-button>
     </div>
+  </div>
+</div>
 
-  
-</form>
