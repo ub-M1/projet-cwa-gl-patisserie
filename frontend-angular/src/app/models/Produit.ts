@@ -8,7 +8,7 @@ export class Product {
     categorie: string | undefined;
 
     constructor(p: any){ // p is a json
-        this._id = p.id;
+        this._id = p.idProduit || p.id;
         this.designation = p.designation;
         this.prixunitaire = p.prixunitaire;
         this.description = p.description;

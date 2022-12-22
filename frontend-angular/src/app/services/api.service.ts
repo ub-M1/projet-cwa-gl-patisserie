@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../models/Produit';
 
@@ -9,7 +9,17 @@ export class ApiService {
 
   public BASE_URL = "https://api-cwa.up.railway.app"
 
+  optionRequete = {
+    headers: new HttpHeaders({ 
+      'Access-Control-Allow-Origin':'*',
+    })
+  };
+
   constructor(private httpClient: HttpClient) { }
+
+  getProductsList() {
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/all/all`);
+  }
 
   getProduct(id: any) {
     return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`);
