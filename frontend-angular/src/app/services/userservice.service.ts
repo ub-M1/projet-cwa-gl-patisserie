@@ -81,6 +81,15 @@ import { Observable } from 'rxjs';
     return this.user !== undefined
   }
 
+  isAdmin(){
+    if(this.user) {
+      if(this.user.role == "ADMIN") {
+        return true
+      }
+    }
+    return false
+  }
+
   logout(){
     this.user = undefined;
     localStorage.clear()
