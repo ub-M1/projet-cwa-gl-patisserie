@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/models/Produit';
+import { ApiService } from 'src/app/services/api.service';
 import { ProduitServiceService } from 'src/app/services/produit-service.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ProduitServiceService } from 'src/app/services/produit-service.service'
 export class ProductsListComponent implements OnInit {
   pro:Product[] | undefined;
   subPs!: Subscription;
-  to:Product[]=[
+  produitsList:Product[]=[
     {
       _id: 1,
       designation: "Orientale",
@@ -40,12 +41,30 @@ export class ProductsListComponent implements OnInit {
       categorie:'sgs'
     }
 ]
-  constructor(private ap:ProduitServiceService) { }
+  constructor(private ap:ProduitServiceService, private apiService: ApiService) { }
 
   ngOnInit(): void {
-   this.subPs=this.ap.getProducts().subscribe((p:Product[])=>{
-    this.pro=p;
-   })
+  //  this.subPs=this.ap.getProducts().subscribe((p:Product[])=>{
+  //   this.pro=p;
+  //  })
+
+  this.getProducts()
   }
+
+    getProducts(){
+      this.apiService.getProductsList().subscribe(
+        (response)=>{
+          console.log('response :>> ', response);
+          this.produitsList = response.map( (product: any) =>{
+            let p: Product = new Product(product)
+            p.image = "assets/images/image1.jpg"
+            return p;
+          })
+        },
+        (error) => {
+          console.error(error)
+        }
+      )
+    }
 
 }

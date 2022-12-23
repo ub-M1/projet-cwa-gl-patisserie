@@ -1,39 +1,36 @@
-<div class="t">
-
-    <div class="i">
-  
-        <form #f="ngForm" (ngSubmit)="Ajout(f)">
-          <div class="h1"><h1>Ajouter un Produit</h1></div>
-            <div>
-                <input type="file" name="file" id="file" class="inputfile"  (change)="uploadImage($event)"  >
-                <label for="file">Image<br><img src="{{to}}"></label>
-            </div>
-            <div class="l">
-                <label value="nom">Nom du produit</label><br>
-                <input  type="texte" name="nom" class="n" required [(ngModel)]="nom">
-            </div>
-            <div class="l">
-                <label value="nom">Nom de la catégorie</label><br>
-                <input  type="texte" name="nom" class="n" required [(ngModel)]="c">
-            </div>
-            <div class="l">
-              <span>Description</span><br>
-                <textarea #textarea required>
-                </textarea>
-            </div>
-            <div class="l">
-                <label value="prix">Prix</label>
-                <input  class="q" type="texte" name="prix" [(ngModel)]="prix">
-  
-                <label value="quantité">Quantité</label>
-                <input class="q" type="texte" name="quantité">
-            </div>
-            <div class="button">
-                <button type="">Créer le Produit</button>
-            </div>
-  
-        </form>
-    </div>
-      </div>
-
-     
+<div class="flex justify-center i" >
+    <form #f="ngForm" (ngSubmit)="Ajout(f)">
+        <div class="h1"><h1>Ajouter un Produit</h1></div>
+          <div>
+              <input type="file" name="file" id="file" class="inputfile"  (change)="uploadImage($event)"  >
+              <label for="file">Image<br><img src="{{to}}"></label>
+          </div>
+          <div class="l">
+              <label value="nom">Nom du produit</label><br>
+              <input  type="texte" name="nom" class="n" required [(ngModel)]="nom">
+          </div>
+          <div class="l">
+              <label value="nom">Catégorie</label><br>
+              <input  type="texte" name="categorie" class="n" required [(ngModel)]="categorie.nomcategorie">
+              <select [(ngModel)]="categorie.nomcategorie"  id="currency" name="currency" class="h-full rounded-md border-transparent bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                <option *ngFor="let c of categories" >{{c.nomcategorie}}</option>
+              </select>
+          </div>
+          <div class="l">
+            <span>Description</span><br>
+              <textarea #textarea required name="description" [(ngModel)]="description">
+              </textarea>
+          </div>
+          <div class="l">
+              <label value="prix">Prix</label>
+              <input  class="q" type="texte" name="prix" [(ngModel)]="prix">
+    
+              <label value="quantité">Quantité max</label>
+              <input class="q" type="texte" name="quantité" [(ngModel)]="quantitemax">
+          </div>
+          <div class="button">
+              <button type="" (click)="addProduct()" >Créer le Produit</button>
+          </div>
+    
+      </form>
+</div>

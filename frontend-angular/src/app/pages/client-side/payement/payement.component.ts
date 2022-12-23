@@ -113,9 +113,9 @@ export class PayementComponent implements OnInit {
             icon: 'success',
             confirmButtonText: 'Cool'
           })
+          Swal.hideLoading()
           this.router.navigateByUrl('my-orders')
 
-          Swal.hideLoading()
         }
       },
       (error) => {//Error callback

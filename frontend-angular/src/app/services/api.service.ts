@@ -41,4 +41,12 @@ export class ApiService {
   addLigneCommande(ligneCommande: any) {
     return this.httpClient.post<any>(`${this.BASE_URL}/addLigCommande`, ligneCommande);
   }
+
+  addProduct(product: any){
+    return this.httpClient.post<any>(`${this.BASE_URL}/addProduit`, product);
+  }
+
+  addCategorie(categorie: any){
+    return this.httpClient.post<any>(`${this.BASE_URL}/addCategory`, categorie);
+  }
 }
