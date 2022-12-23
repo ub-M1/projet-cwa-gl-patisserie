@@ -1,14 +1,21 @@
 .header{
-    padding: 5px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
-    .left{
+    align-items: center;
+    border-radius: 10px;
 
+    border-bottom: 2px solid rgb(243, 243, 243);
+    // background-color: #eedaff;
+    
+    .left{
+        border: 2px solid gray;
+        border-radius: 25px;
+        padding: 25px;
     }
     .right{
         ul{
             display: flex;
-            flex-direction: row-reverse;
             align-items: flex-end;
             li{
                 margin: 5px;

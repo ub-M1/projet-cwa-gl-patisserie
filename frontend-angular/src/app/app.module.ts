@@ -26,6 +26,13 @@ import { AddDecreaseComponent } from './components/add-decrease/add-decrease.com
 import { OrderDetailComponent } from './pages/client-side/order-detail/order-detail.component';
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
 import { ManageOrderComponent } from './pages/admin-side/manage-order/manage-order.component';
+import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
+import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
+import {  ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './pages/contact/contact.component';
+
+
 
 @NgModule({
   declarations: [
@@ -49,13 +56,19 @@ import { ManageOrderComponent } from './pages/admin-side/manage-order/manage-ord
     AddDecreaseComponent,
     OrderDetailComponent,
     ProfileComponent,
-    ManageOrderComponent
+    ManageOrderComponent,
+    AjoutProduitComponent,
+    ProfileComponent,
+    SignupUpPageComponent,
+    LoginPageComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart } from 'src/app/models/Cart';
 import { Product } from 'src/app/models/Produit';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +14,7 @@ export class CartComponent implements OnInit {
 
   cartData: Cart = new Cart;
 
-  constructor(private cartService: CartService) { 
+  constructor(private cartService: CartService, private userService: UserService, private route: Router) { 
     this.cartService.cart.subscribe((cartData) => {
       this.cartData = cartData;
       console.log(cartData);
@@ -34,6 +36,15 @@ export class CartComponent implements OnInit {
   checkout(){
     // create Order
     console.log("cart to checkout", this.cartService.cart.value)
+
+    if(this.userService.isAuth()){
+      this.route.navigateByUrl('payement')
+    } else{
+      this.route.navigate(['login', "payement"])
+
+    }
+
+
   }
 
   ngOnInit(): void {

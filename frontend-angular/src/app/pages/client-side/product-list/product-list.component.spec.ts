@@ -20,4 +20,11 @@ describe('ProductListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+
+ 
+  /*it('should filter products by search term', () => {
+    component.searchTerm = 'croissant';
+    component.search();
+    expect(component.products).toEqual([{ id: 1, name: 'Croissant' }]);*/
+  });
+

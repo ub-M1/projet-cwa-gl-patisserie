@@ -9,8 +9,22 @@ import { ProfileComponent } from './pages/client-side/profile/profile.component'
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
 import { OrderDetailComponent } from './pages/client-side/order-detail/order-detail.component';
 import { ManageOrderComponent } from './pages/admin-side/manage-order/manage-order.component';
+import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
+import { ProductsListComponent } from './pages/admin-side/products-list/products-list.component';
+
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
+
+
+import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
+
+
 
 const routes: Routes = [
+  { path: "admin/liste-product", component: ProductsListComponent},
+  { path: "admin/new-product", component: AjoutProduitComponent},
   { path: "", component: HomeComponent},
   { path: "product/:id", component: ProductDetailsComponent},
   { path: "cart", component: CartComponent},
@@ -20,7 +34,17 @@ const routes: Routes = [
   { path: "order-detail/:id", component: OrderDetailComponent},
   { path: "profile", component: ProfileComponent},
   { path: "admin/orders", component: OrdersListComponent},
-  { path: "admin/manage-order/:id", component: ManageOrderComponent}
+  { path: "admin/manage-order/:id", component: ManageOrderComponent},
+  
+  //Routes pour authentification
+  { path: "login", component: LoginComponent},
+  { path: "login/:redirect", component: LoginComponent},
+  { path: "register", component: RegisterComponent},
+  { path: "profile", component: ProfileComponent},
+  
+  //Routes pour authentification nouvelle version
+  {path:"login2", component:LoginPageComponent},
+  {path:"signup2", component:SignupUpPageComponent},
 ];
 
 @NgModule({

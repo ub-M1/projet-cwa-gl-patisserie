@@ -1,4 +1,6 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Category } from '../models/Category';
 import { Product } from '../models/Produit';
 
 @Injectable({
@@ -6,18 +8,45 @@ import { Product } from '../models/Produit';
 })
 export class ApiService {
 
-  constructor() { }
+  public BASE_URL = "https://api-cwa.up.railway.app"
+
+  optionRequete = {
+    headers: new HttpHeaders({ 
+      'Access-Control-Allow-Origin':'*',
+    })
+  };
+
+  constructor(private httpClient: HttpClient) { }
+
+  getProductsList() {
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/all/all`);
+  }
+
+  getCategories() {
+    return this.httpClient.get<Category[]>(`${this.BASE_URL}/getCategory`);
+  }
+
+  getProducstByCategory(cat: Category) {
+    return this.httpClient.get<Category[]>(`${this.BASE_URL}/getProduit/byCategory/${cat.nomcategorie}`);
+  }
 
   getProduct(id: any) {
-    return new Product({
-      id: id,
-      designation: 'test',
-      prixunitaire: 12,
-      description: 'jdnckj',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
-      categorie: "je",
-      quantitemax: 5
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`);
+  }
 
-    })
+  postOrder(order: any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/addCommande`, order);
+  }
+
+  addLigneCommande(ligneCommande: any) {
+    return this.httpClient.post<any>(`${this.BASE_URL}/addLigCommande`, ligneCommande);
+  }
+
+  addProduct(product: any){
+    return this.httpClient.post<any>(`${this.BASE_URL}/addProduit`, product);
+  }
+
+  addCategorie(categorie: any){
+    return this.httpClient.post<any>(`${this.BASE_URL}/addCategory`, categorie);
   }
 }

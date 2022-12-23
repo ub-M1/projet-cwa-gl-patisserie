@@ -1,31 +1,44 @@
 
-<h2>Panier</h2>
-<div>
-    <div class="cart-line" *ngFor="let ci of cartData.cart_item" >
-        <div class="left-side flex items-center">
-            <img [src]="ci.product.image" >
-            <span class=" mx-5 font-bold">
-               {{ci.product.designation}}
-               <br>
-               <span>€ {{ci.product.prixunitaire}}</span>
-            </span>
-        </div>
-
-        <div class="center flex items-center">
-            <app-add-decrease (onInc)="add(ci.product)" (onDec)="decrease(ci.product)" [item] = "ci"   class="my-10" ></app-add-decrease>
-
-
-            <span class="ml-10 font-bold" >
-                € {{ci.totalPrice()}} 
-            </span>
-        </div>
-
-        <div class="right-side flex items-center mr-10" (click)="remove(ci.product)">
-            x
+<div class="wrapper">
+    <div class="text-[32px] flex justify-between" >
+        <h1 class=" m-2 font-bold" >Panier</h1>
+        <div>
+            <span class= "m-2 font-bold text-[32px] " >Total: </span> <span class="text-[32px]"> € {{cartData.getTotalPrice()}} </span>
         </div>
     </div>
-</div>
 
-<div>
-    <app-button (click)="checkout()" routerLink="/payement" [label]="'valider commande'"></app-button>
-</div>
+    <div class="flex justify-center m-5" *ngIf="cartData.getCount() == 0" >
+        Vous n'avez aucun produit dans votre panier
+
+    </div>
+    <div *ngIf="cartData.getCount() != 0">
+        <div class="cart-line" *ngFor="let ci of cartData.cart_item" >
+            <div class="left-side flex items-center">
+                <img [src]="ci.product.image" >
+                <span class=" mx-5 font-bold">
+                {{ci.product.designation}}
+                <br>
+                <span class="pu" >€ {{ci.product.prixunitaire}}</span>
+                </span>
+            </div>
+
+            <div class="center flex items-center">
+                <app-add-decrease (onInc)="add(ci.product)" (onDec)="decrease(ci.product)" [item] = "ci"   class="my-10" ></app-add-decrease>
+
+
+                <span class="ml-10 font-bold" >
+                    € {{ci.totalPrice()}} 
+                </span>
+            </div>
+
+            <div class="right-side flex items-center mr-10 text-[30px] text-zinc-400 cursor-pointer font-bold" (click)="remove(ci.product)">
+                x
+            </div>
+        </div>
+
+        <div class="flex justify-center" >
+            <app-button (click)="checkout()" [label]="'valider commande'"></app-button>
+        </div>
+    </div>
+
+
