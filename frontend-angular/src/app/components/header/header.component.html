@@ -6,7 +6,14 @@
    <div class="right">
     <ul>
 
+        <li *ngIf="userService.isAdmin()" class="menu-item has-children">
+            <app-button class="mt-5" routerLink="/admin/liste-product" [clear]="true" label="Liste des Produits"></app-button>
+        </li>
+        
 
+        <li *ngIf="userService.isAdmin()" class="menu-item has-children">
+            <app-button class="mt-5" routerLink="/admin/new-product" [clear]="true" label="Ajout des produits"></app-button>
+        </li>
 
         
 
