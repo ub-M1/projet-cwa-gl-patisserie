@@ -11,7 +11,35 @@ import { ProduitServiceService } from 'src/app/services/produit-service.service'
 export class ProductsListComponent implements OnInit {
   pro:Product[] | undefined;
   subPs!: Subscription;
-
+  to:Product[]=[
+    {
+      _id: 1,
+      designation: "Orientale",
+      prixunitaire: 12.0,
+      image: "img-ori",
+      quantitemax: 23,
+      description: "description pizza nu",
+      categorie:'sgs'
+    },
+    {
+      _id: 2,
+      designation: "Orientale",
+      prixunitaire: 12.0,
+      image: "img-ori",
+      quantitemax: 23,
+      description: "description pizza nu",
+      categorie:'sgs'
+    },
+    {
+      _id: 1,
+      designation: "Orientale",
+      prixunitaire: 12.0,
+      image: "img-ori",
+      quantitemax: 23,
+      description: "description pizza nu",
+      categorie:'sgs'
+    }
+]
   constructor(private ap:ProduitServiceService) { }
 
   ngOnInit(): void {
