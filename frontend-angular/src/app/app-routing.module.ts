@@ -17,19 +17,22 @@ import { LoginPageComponent } from './pages/auth/login-page/login-page.component
 
 
 import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
+import { ClientsListComponent } from './pages/admin-side/clients-list/clients-list.component';
 
 
 
 const routes: Routes = [
-  { path: "admin/liste-product", component: ProductsListComponent},
-  { path: "admin/new-product", component: AjoutProduitComponent},
   { path: "", component: HomeComponent},
   { path: "product/:id", component: ProductDetailsComponent},
   { path: "cart", component: CartComponent},
   { path: "payement", component: PayementComponent},
   { path: "my-orders", component: OrdersComponent},
+
   { path: "admin/orders", component: OrdersListComponent},
-  
+  { path: "admin/liste-product", component: ProductsListComponent},
+  { path: "admin/new-product", component: AjoutProduitComponent},
+  { path: "admin/liste-clients", component: ClientsListComponent},
+
   //Routes pour authentification
   
   { path: "login", component: LoginComponent},
