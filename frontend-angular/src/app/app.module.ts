@@ -24,11 +24,16 @@ import { PayementComponent } from './pages/client-side/payement/payement.compone
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
 import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
-import { RouterModule, Routes } from '@angular/router';
-const Rout: Routes=[
+import { ProfileComponent } from './pages/client-side/profile/profile.component';
+import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
+import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 
-  {path:'Ajout',component: AjoutProduitComponent }
-];
+
+import {  ReactiveFormsModule } from '@angular/forms';
+import { ContactComponent } from './pages/contact/contact.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,13 +56,17 @@ const Rout: Routes=[
     AddDecreaseComponent,
     AjoutProduitComponent,
    
+    ProfileComponent,
+    SignupUpPageComponent,
+    LoginPageComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(Rout), 
+    ReactiveFormsModule
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]

@@ -16,8 +16,20 @@ describe('HomeComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+  it(`should have a menu`, () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app = fixture.componentInstance;
+    expect(app.menu).toBeDefined();
+    expect(app.menu.length).toBeGreaterThan(0);
+  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it(`should submit the form`, () => {
+    const fixture = TestBed.createComponent(HomeComponent);
+    const app = fixture.componentInstance;
+    spyOn(app, 'submitForm');
+    app.submitForm({ value: 'test' });
+    expect(app.submitForm).toHaveBeenCalledWith({ value: 'test' });
   });
 });
+
+

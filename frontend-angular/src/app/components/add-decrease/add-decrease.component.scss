@@ -1,0 +1,36 @@
+
+.minus-wraper{
+
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 17px 0px 0px 17px;
+}
+
+.plus-wraper{
+    box-sizing: border-box;
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    border-radius: 0px 17px 17px 0px;
+
+}
+
+.count-wraper{
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+}
+
+.txt{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #000000;
+}
+
+.wp{
+    display: inline-block;
+    text-align: center;
+    padding: 15px;
+}

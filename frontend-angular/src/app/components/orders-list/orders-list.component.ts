@@ -14,32 +14,10 @@ export class OrderListComponent implements OnInit {
   @Input() ordersList: Order[];
 
   constructor() { 
-    this.ordersList = [
-      {
-        _id: 2,
-        datecommande: new Date('December 12'),
-        adresse_livraison: '',
-        etat: true,
-        client: {
-          id: 1,
-          nom: '',
-          prenom: '',
-          email: '',
-          username: '',
-          role: '',
-          token: ''
-        },
-        ligne_commande: {
-          prixachat: 120
-        }
-      }
-    ];
+    this.ordersList = [];
   }
 
   ngOnInit(): void {
 
   }
-
-  getCommandes(){}
-
 }

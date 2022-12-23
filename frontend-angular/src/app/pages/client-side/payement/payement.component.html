@@ -1,46 +1,78 @@
-<div class="flex justify-evenly ">
-    <div class="card">
-        <h1 class="font-bold" >Detail expedition</h1>
+<div class="flex justify-evenly  ">
+    <div class="card flex flex-col justify-center ">
+        <h1 class="font-bold m-5 text-center" >Détails d'expedition</h1>
 
-        <form>
-            <label> Nom Prénom: </label>
-            <input type="text" [(ngModel)]="adresseData.fullname" name="adress"> <br>
+        <form  >
+            <div class="input">
+                <label> Nom Prénom: </label>
+                <input type="text" [(ngModel)]="adresseData.fullname" name="adress"> <br>
+            </div>
 
-            <label> Tél: </label>
-            <input type="text" [(ngModel)]="adresseData.tel" name="adress"> <br>
+            <div class="input">
+                <label> Tél: </label>
+                <input type="text" [(ngModel)]="adresseData.tel" name="adress"> <br>
+            </div>
 
-            <label> Email: </label>
-            <input type="text" [(ngModel)]="adresseData.email" name="adress"> <br>
+            <div class="input">
+                <label> Email: </label>
+                <input type="text" [(ngModel)]="adresseData.email" name="adress"> <br>
+            </div>
 
-            <label> Adresse: </label>
-            <input type="text" [(ngModel)]="adresseData.adresse" name="adress"> <br>
+            <div class="input">
+                <label> Adresse: </label>
+                <input type="text" [(ngModel)]="adresseData.adresse" name="adress"> <br>
+            </div>
 
-            <label> Code postal: </label> 
-            <input type="number" [(ngModel)]="adresseData.codePostal" name="code"><br>
+            <div class="flex justify-between " >
+                <div class="input flex-1">
+                    <label> Code postal: </label> 
+                    <input type="text" [(ngModel)]="adresseData.codePostal" name="code"><br>
+                </div>
 
-            <label>Ville:</label>
-            <input type="text" [(ngModel)]="adresseData.ville" name="ville">
+                <div class="mx-10" ></div>
+    
+                <div class="input flex-1">
+                    <label>Ville:</label>
+                    <input type="text" [(ngModel)]="adresseData.ville" name="ville">
+                </div>
+            </div>
 
             <br>
           </form>
     </div>
 
-    <div class="card">
-        <h1 class="font-bold" >Paiement</h1>
+    <div class="card ">
+        <h1 class="font-bold m-5 text-center" >Paiement</h1>
 
         <form>
-            <label> Numéro de carte : </label>
-            <input type="text" [(ngModel)]="payemenData.cardNumber" name="adress"> <br>
+            <div class="input">
+                <label> Numéro de carte : </label>
+                <input type="text" [(ngModel)]="payemenData.cardNumber" name="adress"> <br>
+            </div>
 
-            <label> Date d'expiration: </label>
-            <input type="text" [(ngModel)]="payemenData.exp" name="adress"> <br>
+            <div class="flex justify-between " >
+                <div class="input flex-1">
+                    <label> Date d'expiration: </label>
+                    <input type="text" [(ngModel)]="payemenData.exp" name="adress"> <br>
+                </div>
+                
+                <div class="mx-10" ></div>
 
-            <label> Cvc: </label>
-            <input type="text" [(ngModel)]="payemenData.cvc" name="adress"> <br>
+
+                <div class="input flex-1">
+                    <label> Cvc: </label>
+                    <input type="text" [(ngModel)]="payemenData.cvc" name="adress"> <br>
+                </div>
+            </div>
+
+            
 
             <br>
+            <div class="flex justify-center" >
 
             <app-button [label]="'Effectuer paiement'" (click)="onSubmit()" ></app-button>
-          </form>
+        </div>
+          
+        </form>
     </div>
 </div>
