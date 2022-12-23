@@ -34,11 +34,17 @@ import { Observable } from 'rxjs';
         this.client = c
       })
 
-      let c = localStorage.getItem('client')
-      if (c){
-        this.client = JSON.parse(c)
-        
+      if(this.user?.role == "ADMIN"){
+        this.client = this.user
+      } else{
+        let c = localStorage.getItem('client')
+        if (c){
+          this.client = JSON.parse(c)
+          
+        }
       }
+
+      
       
     }
 
@@ -63,6 +69,10 @@ import { Observable } from 'rxjs';
 
   createUser(username: string, password: string, role: string){
     return this.http.post<any>(this.URL+'/addUser',{username, password, role})
+  }
+
+  getClients(): Observable<any> {
+    return this.http.get<any>(this.URL+'/getClient/');
   }
 
   setUser(user: User){
