@@ -1,1 +1,23 @@
-<p>products-list works!</p>
+<div id="u">
+    <div class="flex justify-between">
+          <h1 class="font-bold" >Produits</h1>
+
+          <app-button class="mt-5 mx-10" routerLink="/admin/new-product" label="Ajout produit"></app-button>
+
+    </div>
+    <div class="d">
+      <ul *ngFor="let produit of produitsList">
+          <li>
+              <img class="picture" [src]="produit.image">
+              <br>
+              <span class="n">{{produit.designation}}</span>
+              <span class="e">{{produit.prixunitaire}}</span><br>
+              <a class="e2"><img class="pencil" src="../../../../assets/icons/delete.png"></a>
+              <a class="e1" ><img class="pencil" src="../../../../assets/icons/pencil.png"></a>
+          </li>
+        
+
+      </ul>
+    </div>
+
+</div>

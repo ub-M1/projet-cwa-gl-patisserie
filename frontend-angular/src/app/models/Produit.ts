@@ -16,4 +16,5 @@ export class Product {
         this.categorie = p.categorie;
         this.quantitemax = p.quantitemax
     }
+  
 }

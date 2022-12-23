@@ -7,6 +7,8 @@ import { PayementComponent } from './pages/client-side/payement/payement.compone
 import { ProductDetailsComponent } from './pages/client-side/product-details/product-details.component';
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
 import { OrdersListComponent } from './pages/admin-side/orders-list/orders-list.component';
+import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
+import { ProductsListComponent } from './pages/admin-side/products-list/products-list.component';
 
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
@@ -18,10 +20,9 @@ import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-pag
 
 
 
-
-
-
 const routes: Routes = [
+  { path: "admin/liste-product", component: ProductsListComponent},
+  { path: "admin/new-product", component: AjoutProduitComponent},
   { path: "", component: HomeComponent},
   { path: "product/:id", component: ProductDetailsComponent},
   { path: "cart", component: CartComponent},
