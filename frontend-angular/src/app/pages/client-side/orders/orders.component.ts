@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OrderService } from 'src/app/services/order.service';
+import { UserService } from 'src/app/services/userservice.service';
 import { Order } from "../../../models/Order";
 
 @Component({
@@ -13,12 +14,15 @@ export class OrdersComponent implements OnInit {
   userId = 1;
   ordersList: Order[] = [];
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.orderService.getOrdersByClientId(this.userId).subscribe(
-      (orders: Order[]) => {
-        this.ordersList = orders
-    });
+    if(this.userService.user){
+      this.orderService.getOrdersByClientId(this.userService.user?.id).subscribe(
+        (orders: Order[]) => {
+          this.ordersList = orders
+      });
+    }
+    
   }
 }

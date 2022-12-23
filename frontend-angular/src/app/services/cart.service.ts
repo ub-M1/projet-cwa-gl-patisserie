@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cart } from '../models/Cart';
+import { CartItem } from '../models/CartItem';
 import { Product } from '../models/Produit';
 
 @Injectable({
@@ -20,10 +21,22 @@ export class CartService {
     })
     let data = localStorage.getItem('cart');
     if(data){
-      this.cartData = JSON.parse(data)
-      console.log('this.cartData :>> ', this.cartData);
+      let c: Cart = JSON.parse(data)
+
+      this.cartData.id = c.id
+      this.cartData.total_price = c.total_price
+      this.cartData.cart_item = []
+
+      c.cart_item.forEach(element => {
+        this.cartData.cart_item.push(new CartItem(element.product, element.quantite))
+      });
+
+      console.log('this.cartData value:>> ', this.cart.value);
       
     }
+
+    console.log('this.cartData value:>> ', this.cartData);
+
   }
 
   add(product: Product) {
@@ -57,7 +70,7 @@ export class CartService {
 
   update(){
     console.log(this.cart.value);
-    localStorage.setItem('cart', JSON.stringify(this.cart.value))
+    localStorage.setItem('cart', JSON.stringify(this.cartData))
   }
 
   totalPrice(){
@@ -65,7 +78,7 @@ export class CartService {
   }
 
   count(){
-    return this.cart.value.getCount();
+    return this.cartData.getCount();
   }
 
 }

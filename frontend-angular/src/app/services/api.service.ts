@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { Category } from '../models/Category';
 import { Product } from '../models/Produit';
 
@@ -19,7 +20,15 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   getProductsList() {
-    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/all/all`);
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/all/all`).pipe(
+      map((data: any[]) => data.map((item) => {
+        let p: Product = new Product(item)
+            if(!p.image?.includes('http') || !p.image?.includes('data:image')){
+              p.image = "assets/img/"+p.image
+            }
+            return p;
+      }))
+    );
   }
 
   getCategories() {
@@ -31,7 +40,15 @@ export class ApiService {
   }
 
   getProduct(id: any) {
-    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`);
+    return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`).pipe(
+      map((data: any[]) => data.map((item) => {
+        let p: Product = new Product(item)
+            if(!p.image?.includes('http') || !p.image?.includes('data:image')){
+              p.image = "assets/img/"+p.image
+            }
+            return p;
+      }))
+    );;
   }
 
   postOrder(order: any) {

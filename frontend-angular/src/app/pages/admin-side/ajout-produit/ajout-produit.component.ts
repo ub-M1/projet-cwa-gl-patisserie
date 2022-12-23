@@ -30,6 +30,8 @@ export class AjoutProduitComponent implements OnInit {
 
  categories: Category[] = []
 
+ imageBlob: string = ""
+
  to:string="../../../../assets/icons/user.png";
    @ViewChild("textarea") textarea!: { nativeElement: { value: any; }; };
   
@@ -60,10 +62,29 @@ updateFileText(text: string) {
 
 }
 uploadImage(event:any) {
-  const file = event.target.files[0].name;
- this.imageUrl=file;
- this.to="../../../../assets/icons/"+this.imageUrl;
- console.log(this.to);
+//   const file = event.target.files[0].name;
+//  this.imageUrl=file;
+//  this.to="../../../../assets/icons/"+this.imageUrl;
+//  console.log(this.to);
+
+//  const reader = new FileReader();
+//   reader.onloadend = () => {
+//     const imageBlob = reader.result as string;
+//     console.log(imageBlob);
+//   };
+//   reader.readAsDataURL(file);
+
+
+  const file = event.target.files[0];
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  let blob
+  reader.onload = () => {
+    blob = reader.result as string
+    console.log(blob);
+    this.imageBlob = blob
+  };
+
 }
 
 getCategories(){
@@ -111,7 +132,7 @@ addProduct(){
   let product = {
     "designation": this.nom,
     "prixunitaire": this.prix,
-    "image": "https://learn.microsoft.com/fr-fr/windows/win32/learnwin32/images/window01.png",
+    "image": this.imageBlob,
     "quantitemax": this.quantitemax,
     "description": this.description,
     "idCategorie": this.getSelectedCategori()

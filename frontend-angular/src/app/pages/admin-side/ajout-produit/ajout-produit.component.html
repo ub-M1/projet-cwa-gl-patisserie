@@ -3,7 +3,7 @@
         <div class="h1"><h1>Ajouter un Produit</h1></div>
           <div>
               <input type="file" name="file" id="file" class="inputfile"  (change)="uploadImage($event)"  >
-              <label for="file">Image<br><img src="{{to}}"></label>
+              <label for="file">Image<br><img [src]="imageBlob"></label>
           </div>
           <div class="l">
               <label value="nom">Nom du produit</label><br>
