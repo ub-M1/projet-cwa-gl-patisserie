@@ -9,46 +9,63 @@ import { Product } from '../models/Produit';
 export class CartService {
 
   public cart : BehaviorSubject<Cart> = new BehaviorSubject<Cart>(new Cart());
+  public cartData!: Cart;
 
 
 
-  constructor() {}
+  constructor() {
 
-  add(product: Product, qty = 1) {
-    this.cart.value.addProduct(product, qty);
-    // this.update()
+    this.cart.subscribe(panier => {
+      this.cartData = panier;
+    })
+    let data = localStorage.getItem('cart');
+    if(data){
+      this.cartData = JSON.parse(data)
+      console.log('this.cartData :>> ', this.cartData);
+      
+    }
+  }
+
+  add(product: Product) {
+    this.cart.value.addProduct(product);
+    this.update();
+  }
+
+  addMany(product: Product, qty:  number) {
+    this.cart.value.setQuantity(product, qty);
+    this.update();
+
   }
 
   decrease(product: Product) {
     this.cart.value.decreaseProduct(product)
-    // this.update()
+    this.update();
+
   }
 
   remove(product: Product){
     this.cart.value.removeProduct(product);
-    // this.update();
+    this.update();
+
   }
 
   clear(){
     this.cart.value.cart_item = []
+    this.update();
+
   }
 
   update(){
     console.log(this.cart.value);
-    // this.cart.next(this.localCart);
+    localStorage.setItem('cart', JSON.stringify(this.cart.value))
   }
 
   totalPrice(){
     return this.cart.value.getTotalPrice()
   }
 
+  count(){
+    return this.cart.value.getCount();
+  }
 
-
-
-  // submitCheckout(userId, cart) {
-  //   return this._api.postTypeRequest('orders/create', {
-  //     userId: userId,
-  //     cart: cart,
-  //   });
-  // }
 }

@@ -8,6 +8,41 @@ describe('OrderService', () => {
   let service: OrderService;
   let httpMock: HttpTestingController;
 
+  const mockOrders: Order[] = [ 
+    new Order({
+      id: 2,
+      date: new Date('December 12'),
+      address: '',
+      state: 'En cours',
+      idClient: {
+        id: 1,
+        nom: '',
+        prenom: '',
+        email: '',
+        username: '',
+        role: '',
+        token: ''
+      }
+    })
+  ];
+  const mockOrder: Order = new Order ({
+    id: 2,
+    date: new Date('December 12'),
+    address: '',
+    state: 'En cours',
+    idClient: {
+      id: 1,
+      nom: '',
+      prenom: '',
+      email: '',
+      username: '',
+      role: '',
+      token: ''
+    }
+  });
+  const clientId = 1;
+  const orderId = 2;
+
   afterEach(() => {
     httpMock.verify();
   })
@@ -25,31 +60,34 @@ describe('OrderService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should retrieve orders', () => {
-    const mockOrders: Order[] = [{
-      _id: '2',
-      datecommande: new Date('December 12'),
-      adresse_livraison: '',
-      etat: true,
-      client: {
-        id: 1,
-        nom: '',
-        prenom: '',
-        email: '',
-        username: ''
-      },
-      ligne_commande: {
-        prixachat: 120
-      }
-    }];
-    const userId = '1';
-    
-    service.getAllOrders(userId).subscribe(orders => {
+  it('should retrieve all orders', () => {
+    service.getAllOrders().subscribe(orders => {
       expect(orders.length).toBe(1);
       expect(orders).toEqual(mockOrders);
     });
 
-    const request = httpMock.expectOne(`${service.URL}/all?userId=${userId}`);
+    const request = httpMock.expectOne(`${service.URL}getComande/all/all`);
+    expect(request.request.method).toBe('GET');
+    request.flush(mockOrders);
+  });
+
+  it('should retrieve order by id', () => {
+    service.getOrderById(orderId).subscribe(order => {
+      expect(order).toEqual(mockOrder);
+    });
+
+    const request = httpMock.expectOne(`${service.URL}getComande/byId/${orderId}`);
+    expect(request.request.method).toBe('GET');
+    request.flush(mockOrder);
+  });
+
+  it('should retrieve orders by client id', () => {
+    service.getOrdersByClientId(clientId).subscribe(orders => {
+      expect(orders.length).toBe(1);
+      expect(orders).toEqual(mockOrders);
+    });
+
+    const request = httpMock.expectOne(`${service.URL}getComande/byIdClient/${clientId}`);
     expect(request.request.method).toBe('GET');
     request.flush(mockOrders);
   });

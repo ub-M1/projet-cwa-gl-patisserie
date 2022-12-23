@@ -6,5 +6,6 @@ export class User {
     email!: string;
     username!: string;
     role!: string; // ADMIN | CLIENT
-    token!: string
+    token!: string;
+    tel : string = ""
 }

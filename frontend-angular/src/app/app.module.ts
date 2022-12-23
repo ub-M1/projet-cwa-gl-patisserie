@@ -23,43 +23,39 @@ import { ButtonComponent } from './components/button/button.component';
 import { PayementComponent } from './pages/client-side/payement/payement.component';
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
-import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
-import { RouterModule, Routes } from '@angular/router';
-const Rout: Routes=[
+import { AjoutProduitComponent } from "./pages/admin-side/ajout-produit/ajout-produit.component";
 
-  {path:'Ajout',component: AjoutProduitComponent }
-];
+ 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    HeaderComponent,
-    HomeComponent,
-    CartComponent,
-    ProductDetailsComponent,
-    ProductListComponent,
-    OrdersComponent,
-    LoginComponent,
-    RegisterComponent,
-    ClientsListComponent,
-    ProductsListComponent,
-    OrdersListComponent,
-    OrderListComponent,
-    IconSquareComponent,
-    ButtonComponent,
-    PayementComponent,
-    AddDecreaseComponent,
-    AjoutProduitComponent,
-   
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(Rout), 
-  ],
-  providers: [OrderService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        FooterComponent,
+        HeaderComponent,
+        HomeComponent,
+        CartComponent,
+        ProductDetailsComponent,
+        ProductListComponent,
+        OrdersComponent,
+        LoginComponent,
+        RegisterComponent,
+        ClientsListComponent,
+        ProductsListComponent,
+        OrdersListComponent,
+        OrderListComponent,
+        IconSquareComponent,
+        ButtonComponent,
+        PayementComponent,
+        AddDecreaseComponent,
+        AjoutProduitComponent
+    ],
+    providers: [OrderService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+       
+    ]
 })
 export class AppModule { }

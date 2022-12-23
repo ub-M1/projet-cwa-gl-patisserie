@@ -11,20 +11,19 @@ describe('OrdersListComponent', () => {
 
   const mockOrders: Order[] = [
     {
-      _id: '2',
-      datecommande: new Date('December 12'),
-      adresse_livraison: '',
-      etat: true,
-      client: {
+      id: 2,
+      date: new Date('December 12'),
+      address: '',
+      state: 'En cours',
+      idClient: {
         id: 1,
         nom: '',
         prenom: '',
         email: '',
-        username: ''
+        username: '',
+        role: '',
+        token: ''
       },
-      ligne_commande: {
-        prixachat: 120
-      }
     },
   ];
 
@@ -38,6 +37,7 @@ describe('OrdersListComponent', () => {
 
     fixture = TestBed.createComponent(OrderListComponent);
     component = fixture.componentInstance;
+    component.ordersList = mockOrders;
     fixture.detectChanges();
   });
 
@@ -58,11 +58,11 @@ describe('OrdersListComponent', () => {
   it('should show card information', ()=>{
     let id = fixture.nativeElement.querySelector('.card-information__id').textContent;
     let date = fixture.nativeElement.querySelector('.card-information__date').textContent;
-    let price = fixture.nativeElement.querySelector('.card-information__price').textContent;
+    let state = fixture.nativeElement.querySelector('.card-information__state').textContent;
 
-    expect(id).toContain('Commande #'+mockOrders[0]._id);
-    expect(date).toContain(mockOrders[0].datecommande);
-    expect(price).toContain(mockOrders[0].ligne_commande.prixachat);
+    expect(id).toContain('Commande #'+mockOrders[0].id);
+    expect(date).toContain(mockOrders[0].date);
+    expect(state).toContain(mockOrders[0].state);
   })
 
   it('should show chevron', ()=>{

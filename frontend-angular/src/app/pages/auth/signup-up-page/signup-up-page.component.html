@@ -1,0 +1,41 @@
+<p>signup-up-page works!</p>
+
+
+
+
+
+
+<div id="container">
+
+    <h1>Hello Welcome! </h1>
+     <h3>Create An Account</h3>
+       <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+
+         <div>
+          <label for="username">username</label>
+          <input  formControlName="username" type="text" placeholder="Entrer le nom d'utilisateur" required >
+           <label for="password">password</label>
+           <input  formControlName="password" type="password" placeholder="Entrer le mot de passe"  required >
+         </div>
+
+         <div>
+         <button>Submit</button>
+         <input type="submit" id='submit' value='SIGN UP' (click)="signUp()" >
+         <span>Already have an account? 
+         <a routerLink="/login2">Login</a></span>
+        </div>
+        </form>
+ 
+
+
+
+
+    
+
+
+         
+          
+      
+
+    
+ 

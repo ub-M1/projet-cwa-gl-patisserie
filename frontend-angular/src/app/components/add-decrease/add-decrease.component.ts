@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CartItem } from 'src/app/models/CartItem';
 
 @Component({
   selector: 'app-add-decrease',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class AddDecreaseComponent implements OnInit {
 
-  @Input() value: any = "";
+  @Input() item!: CartItem | null;
   @Output() onInc = new EventEmitter<void>();
   @Output() onDec = new EventEmitter<void>();
 
@@ -21,5 +22,12 @@ export class AddDecreaseComponent implements OnInit {
   }
   onIncrease(){
     this.onInc.emit();
+  }
+
+  getCount(){
+    if (this.item){
+      return this.item.quantite
+    }
+    return 0
   }
 }
