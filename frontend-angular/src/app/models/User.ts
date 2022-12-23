@@ -5,4 +5,7 @@ export class User {
     prenom!: string;
     email!: string;
     username!: string;
+    role!: string; // ADMIN | CLIENT
+    token!: string;
+    tel : string = ""
 }

@@ -1,0 +1,13 @@
+@use '../../../assets/scss/variables' as var;
+
+.icon-square{
+    background-color: var.$purple-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img{
+        width: 50%;
+        height: 50%;
+    }
+}

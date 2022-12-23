@@ -1,0 +1,38 @@
+
+.wrapper{
+    background: rgba(239, 239, 239, 0.42);
+border-radius: 17px 17px 0px 0px;
+
+padding: 10px;
+height: 100vh;}
+
+.cart-line{
+    margin: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+    border-radius: 20px;
+
+    .left-side{
+        img{
+            width: 121px;
+            height: 86px;
+
+            border-radius: 17px;
+        }
+    }
+
+    .pu{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+
+        color: #979797;
+    }
+}

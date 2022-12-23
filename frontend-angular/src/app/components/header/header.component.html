@@ -1,1 +1,46 @@
-<p>header works!</p>
+<div class="header">
+   <div class="left cursor-pointer">
+        <span class="font-bold text-2xl " routerLink="/">MyPastyShop</span>
+   </div>
+
+   <div class="right">
+    <ul>
+
+
+
+        
+
+        <li *ngIf="!userService.isAuth()" class="menu-item has-children">
+            <app-button class="mt-5" routerLink="/login" [clear]="true" label="Se connecter"></app-button>
+        </li>
+
+        <li *ngIf="userService.isAuth()" class="menu-item has-children">
+            <app-button class="mt-5" routerLink="/my-orders" [clear]="true" label="Activité"></app-button>
+        </li>
+
+        <li *ngIf="userService.isAuth()" class="menu-item has-children">
+            <app-button class="mt-5" routerLink="/profile" [clear]="true" [label]="'Mon compte | ' + userService.user!.username"></app-button>
+        </li>
+
+        
+
+        <li class="menu-item has-children">
+            <span routerLink="/cart">
+                <div class="bg-white rounded-full border-slate-300 border text-center w-12 h-12 p-3 cursor-pointer flex">
+                    <img src="{{cartIcon}}"/>
+                    <span>{{cartService.count()}}</span>
+                </div>
+            </span>
+        </li>
+
+        <li *ngIf="userService.isAuth()" class="menu-item has-children">
+            <span (click)="logout()">
+                <div class="bg-white rounded-full border-slate-300 border text-center w-12 h-12 p-3 cursor-pointer">
+                    <img src="../../../assets/icons/logout.png"/>
+                </div>
+            </span>
+        </li>
+    </ul>
+</div>
+</div>
+

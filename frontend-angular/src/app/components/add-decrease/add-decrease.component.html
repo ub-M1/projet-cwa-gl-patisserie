@@ -1,0 +1,8 @@
+
+<span class="" >
+    <span class="minus-wraper cursor-pointer txt wp" (click)="onDecrease()">-</span>
+    <span class="count-wraper txt wp" > {{getCount()}}
+        <span *ngIf="item && item.isMaxQtyReached()" class="" >Max !</span>
+    </span>
+    <span class="plus-wraper cursor-pointer txt wp"  (click)="onIncrease()" >+</span> 
+</span>

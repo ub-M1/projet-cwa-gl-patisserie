@@ -1,0 +1,66 @@
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+}
+.i{
+border: 5px solid;
+background-color: #F2F2F2;
+
+border: 2px solid #F2F2F2;
+border-radius: 12px;
+
+}
+
+.t{
+display: flex;
+justify-content: center;
+}
+form{
+margin: 30px;
+padding:10px;
+}
+.h1{
+margin-left: 50px;
+margin-right: 10px;
+}
+.q{
+width:124px;
+height: 35px;
+}
+.button{
+padding-top: 30px;
+}
+label{
+size:66px;
+}
+.n{
+width:350px;
+height: 35px;
+}
+textarea{
+  width:350px;
+  height: 100px;
+  border: 2px solid #F2F2F2;
+    border-radius: 12px;
+}
+.l{
+padding-top: 10px;
+
+}
+button{
+height: 35px;
+border: 2px solid #D8C6FF;
+  border-radius: 12px;
+  width:150px;
+  background-color: #D8C6FF;
+}
+input{
+border: 2px solid #F2F2F2 ;
+  border-radius: 12px;
+}
+img{
+width:70px;
+height: 60px;
+}
