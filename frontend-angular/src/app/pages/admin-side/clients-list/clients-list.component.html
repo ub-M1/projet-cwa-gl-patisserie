@@ -1,26 +1,19 @@
-<html>
-    <head></head>
-    <body >
-        <div class="body">
-            
-            <h1>Clients</h1>
+<div class="body">
+    <h1 class="font-bold m-5" >Clients</h1>
 
-            <ul *ngFor="let Users of ListU" >
-            <li>
-                <div class="box">
-                    <div class="image"><img src="../../../assets/icons/user.png" alt=""></div>
+    <div class="grid grid-cols-4 gap-4 "  >
+        <div class="box flex flex-col justify-center items-center" *ngFor="let Users of userList">
+            <div class="img-box">
+                <img src="../../../assets/icons/user.png" alt="">
+            </div>
 
-                    <p class="p1">ID #{{Users.id}} </p> <br/>
-                    <p class="p2">{{Users.prenom}}  {{Users.nom}} </p><br/>
-                    <p>{{Users.email}} </p><br/>
-                    <p>+33 {{Users.tel}} </p>
-                </div>
-            </li>
-
-            
-            </ul>
-
+            <p class="p1 text-grey-600 ">ID #{{Users.id}} </p> <br/>
+            <p class="p2 font-bold">{{Users.prenom}}  {{Users.nom}} </p><br/>
+            <p>{{Users.email}} </p><br/>
+            <p>+33 {{Users.tel}} </p>
         </div>
 
-</body>
- </html>
+    
+    </div>
+
+</div>

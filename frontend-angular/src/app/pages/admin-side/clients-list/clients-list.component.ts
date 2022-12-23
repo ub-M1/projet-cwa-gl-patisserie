@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/User';
-import { UtilisateurSService } from 'src/app/services/UtilisateurService/utilisateur-s.service';
+import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
   selector: 'app-clients-list',
@@ -9,17 +9,15 @@ import { UtilisateurSService } from 'src/app/services/UtilisateurService/utilisa
   styleUrls: ['./clients-list.component.scss']
 })
 export class ClientsListComponent implements OnInit {
-  ListU!:User[];
+  userList!:User[];
   subPs!:Subscription;
-  constructor(private User:UtilisateurSService) {
+  constructor(private userService: UserService) {
 
    }
 
   ngOnInit(): void {
-    console.log(this.User.User);
-    this.subPs=this.User.User.subscribe((p:User[])=>{
-      this.ListU=p;
-
+    this.subPs=this.userService.getClients().subscribe((p:User[])=>{
+      this.userList=p;
     });
     /*
     this.ListU=[
