@@ -1,36 +1,32 @@
-export const mockOrders = [{
-  "idLcom": 1,
-  "quantite": 540,
-  "prixachat": 11.5,
-  "idCommande": {
-    "idCommande": 1,
-    "datecommande": "2022-11-14",
-    "adresseLivraison": "25 rue albert dijon",
-    "etat": "cours",
-    "idClient": {
-      "idClient": 2,
-      "nom": "Jean",
-      "prenom": "Borden phipo",
-      "tel": "0745789632",
-      "email": "Jean@gmail.com",
-      "idUser": {
-        "idUser": 2,
-        "username": "Jean",
-        "password": "8ddcc396260722badfec91e4e3567079",
-        "role": "CLIENT"
-      }
+import { OrderLine } from "src/app/models/OrderLine";
+
+export const mockOrders: OrderLine[] = [{
+  id: 1,
+  quantity: 540,
+  price: 11.5,
+  order: {
+    id: 1,
+    date: new Date("2022-11-14"),
+    address: "25 rue albert dijon",
+    state: "en cours",
+    idClient: {
+      id: 1,
+      nom: '',
+      prenom: '',
+      email: '',
+      username: '',
+      role: '',
+      token: '',
+      tel: ''
     }
   },
-  "idProduit": {
-    "idProduit": 5,
-    "designation": "Cheese Burger",
-    "prixunitaire": 8.5,
-    "image": "img-cheese",
-    "quantitemax": 10,
-    "description": "Cheese Burger",
-    "idCategorie": {
-      "idCategorie": 2,
-      "nomcategorie": "BURGER"
-    }
+  product: {
+    _id: 5,
+    designation: "Cheese Burger",
+    prixunitaire: 8.5,
+    image: "img-cheese",
+    quantitemax: 10,
+    description: "Cheese Burger",
+    categorie: ''
   }
 }];

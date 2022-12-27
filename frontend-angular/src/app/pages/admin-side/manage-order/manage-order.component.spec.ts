@@ -51,7 +51,7 @@ describe('ManageOrderComponent', () => {
     expect(buttons.length).toBe(3);
   });
 
-  it('should change etat', fakeAsync(() => {
+  it('should change state', fakeAsync(() => {
     spyOn(component, 'changeState');
     let button = fixture.nativeElement.querySelector('.detail-actions__change-state');
     button.click();

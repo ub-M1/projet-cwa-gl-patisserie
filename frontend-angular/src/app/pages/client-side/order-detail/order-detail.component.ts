@@ -22,7 +22,6 @@ export class OrderDetailComponent implements OnInit {
     this.orderLineService.getOrderLinesByOrderId(this.orderId).subscribe(
       (productsOrder: any[]) => {
         this.productsOrder = productsOrder
-        console.log(productsOrder)
       }
     )
   }

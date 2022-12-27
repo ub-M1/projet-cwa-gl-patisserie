@@ -1,7 +1,7 @@
 <div class="detail">
     <div class="detail-header">
         <h1 class="detail-header__title">Commande #{{orderId}}</h1>
-        <h2>{{productsOrder[0].order.etat}}</h2>
+        <h2>{{productsOrder[0].order.state}}</h2>
         <h1 class="detail-header__total">Total: €{{productsOrder[0].price}}</h1>
     </div>
     <div class="detail-info" *ngFor="let ol of productsOrder">

@@ -22,7 +22,8 @@ describe('OrdersListComponent', () => {
         email: '',
         username: '',
         role: '',
-        token: ''
+        token: '',
+        tel: ''
       },
     },
   ];
