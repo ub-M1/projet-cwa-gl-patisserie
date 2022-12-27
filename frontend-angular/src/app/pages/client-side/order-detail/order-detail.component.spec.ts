@@ -41,7 +41,9 @@ describe('OrderDetailComponent', () => {
     let img = fixture.nativeElement.querySelectorAll('.detail-info > img');
     expect(img.length).toBe(1);
     let pTags = fixture.nativeElement.querySelectorAll('.detail-info > p');
-    expect(pTags.length).toBe(5);
+    expect(pTags.length).toBe(2);
+    let pTagsMain = fixture.nativeElement.querySelectorAll('.detail-info__main > p');
+    expect(pTagsMain.length).toBe(2);
   });
 
   it('should show actions', ()=>{

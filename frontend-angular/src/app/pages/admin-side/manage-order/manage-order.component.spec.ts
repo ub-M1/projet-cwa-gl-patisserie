@@ -41,14 +41,23 @@ describe('ManageOrderComponent', () => {
     let img = fixture.nativeElement.querySelectorAll('.detail-info > img');
     expect(img.length).toBe(1);
     let pTags = fixture.nativeElement.querySelectorAll('.detail-info > p');
-    expect(pTags.length).toBe(5);
+    expect(pTags.length).toBe(2);
+    let pTagsMain = fixture.nativeElement.querySelectorAll('.detail-info__main > p');
+    expect(pTagsMain.length).toBe(2);
+  });
+
+  it('should show detail user', ()=>{
+    let userInfo = fixture.nativeElement.querySelector('.detail-user');
+    expect(userInfo).not.toBeNull();
+    let pTags = fixture.nativeElement.querySelectorAll('.detail-user > p');
+    expect(pTags.length).toBe(4);
   });
 
   it('should show actions', ()=>{
     let actions = fixture.nativeElement.querySelector('.detail-actions');
     expect(actions).not.toBeNull();
     let buttons = fixture.nativeElement.querySelectorAll('.detail-actions > button');
-    expect(buttons.length).toBe(3);
+    expect(buttons.length).toBe(1);
   });
 
   it('should change state', fakeAsync(() => {
