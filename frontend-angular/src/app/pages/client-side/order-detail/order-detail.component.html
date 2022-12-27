@@ -1,19 +1,21 @@
 <div class="detail">
     <div class="detail-header">
         <h1 class="detail-header__title">Commande #{{orderId}}</h1>
-        <h2>{{productsOrder[0].order.state}}</h2>
-        <h1 class="detail-header__total">Total: €{{productsOrder[0].price}}</h1>
+        <h1 class="detail-header__total">Total: <span>€{{productsOrder[0].price}}</span></h1>
     </div>
-    <div class="detail-info" *ngFor="let ol of productsOrder">
+    <p class="detail-header__state" [ngClass]="productsOrder[0].order.state.charAt(0)">{{productsOrder[0].order.state}}</p>
+    <div *ngFor="let ol of productsOrder">
+        <div class="detail-info"></div>
         <img class="detail-info__image" src="{{ol.product.image}}">
-        <p class="detail-info__name">{{ol.product.designation}}</p>
-        <p class="detail-info__price">€{{ol.product.prixunitaire}}</p>
-        <p class="detail-info__quantity-title">Quantité</p>
-        <p class="detail-info__quantity">{{ol.quantity}}</p>
+        <div class="detail-info__main">
+            <p class="detail-info__name">{{ol.product.designation}}</p>
+            <p class="detail-info__price">€{{ol.product.prixunitaire}}</p>
+        </div>
+        <p class="detail-info__quantity">Quantité<br><span>{{ol.quantity}}</span></p>
         <p class="detail-info__price-product">€{{ol.product.prixunitaire * ol.quantity}}</p>
     </div>
     <div class="detail-actions">
         <button class="detail-actions__return" (click)="goBack()">Retour</button>
-        <button class="detail-actions__cancel" (click)="changeOrderState()">Annuler Commande</button>
+        <button [disabled]="productsOrder[0].order.state === 'anulée'" class="detail-actions__cancel" (click)="changeOrderState()">Annuler Commande</button>
     </div>
 </div>

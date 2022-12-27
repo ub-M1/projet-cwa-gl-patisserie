@@ -15,7 +15,7 @@ export class OrderLine{
         this.id = order.idLcom;
         this.quantity = order.quantite;
         this.price = order.prixachat;
-        this.order = order.idCommande;
+        this.order = new Order(order.idCommande);
         this.product = order.idProduit;
     }
 }

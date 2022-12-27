@@ -28,7 +28,7 @@ export class ManageOrderComponent implements OnInit {
     this.orderLineService.getOrderLinesByOrderId(this.orderId).subscribe(
       (productsOrder: any[]) => {
         this.productsOrder = productsOrder;
-        this.selectedOption = productsOrder[0].order.etat;
+        this.selectedOption = productsOrder[0].order.state;
       }
     )
   }
