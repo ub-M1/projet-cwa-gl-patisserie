@@ -4,8 +4,7 @@
         <h1 class="detail-header__total">Total: <span>€{{productsOrder[0].price}}</span></h1>
     </div>
     <p class="detail-header__state" [ngClass]="productsOrder[0].order.state.charAt(0)">{{productsOrder[0].order.state}}</p>
-    <div *ngFor="let ol of productsOrder">
-        <div class="detail-info"></div>
+    <div class="detail-info" *ngFor="let ol of productsOrder">
         <img class="detail-info__image" src="{{ol.product.image}}">
         <div class="detail-info__main">
             <p class="detail-info__name">{{ol.product.designation}}</p>
