@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Order, OrderAdapter } from "../models/Order";
-import { map } from "rxjs/operators";
+import { catchError, map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +29,12 @@ export class OrderService {
     return this.httpClient.get<Order[]>(`${this.URL}getComande/byIdClient/${clientId}`).pipe(
       map((data: any[]) => data.map((item) => this.adapter.adapt(item)))
     );
+  }
+
+  changeOrderState(orderId: number, state: string): Observable<Order>{
+    return this.httpClient.post<Order>(`${this.URL}updateEtatCommande/${orderId}`,
+    {
+      etat: state
+    });
   }
 }
