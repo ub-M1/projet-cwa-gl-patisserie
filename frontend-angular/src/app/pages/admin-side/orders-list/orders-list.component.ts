@@ -9,6 +9,7 @@ import { Order } from "../../../models/Order";
 })
 export class OrdersListComponent implements OnInit {
 
+  link = '/admin/manage-order';
   userId = 1;
   ordersList: Order[] = [];
 

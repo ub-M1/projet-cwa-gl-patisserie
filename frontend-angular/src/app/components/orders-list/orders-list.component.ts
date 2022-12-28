@@ -12,8 +12,10 @@ export class OrderListComponent implements OnInit {
 
   icon = '../../../assets/icons/cutlery.png';
   @Input() ordersList: Order[];
+  @Input() link: string;
 
   constructor() { 
+    this.link = '';
     this.ordersList = [];
   }
 

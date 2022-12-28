@@ -23,12 +23,12 @@ import { ButtonComponent } from './components/button/button.component';
 import { PayementComponent } from './pages/client-side/payement/payement.component';
 import { FormsModule } from '@angular/forms';
 import { AddDecreaseComponent } from './components/add-decrease/add-decrease.component';
-import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
+import { OrderDetailComponent } from './pages/client-side/order-detail/order-detail.component';
 import { ProfileComponent } from './pages/client-side/profile/profile.component';
+import { ManageOrderComponent } from './pages/admin-side/manage-order/manage-order.component';
+import { AjoutProduitComponent } from './pages/admin-side/ajout-produit/ajout-produit.component';
 import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
-
-
 import {  ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './pages/contact/contact.component';
 
@@ -54,8 +54,10 @@ import { ContactComponent } from './pages/contact/contact.component';
     ButtonComponent,
     PayementComponent,
     AddDecreaseComponent,
+    OrderDetailComponent,
+    ProfileComponent,
+    ManageOrderComponent,
     AjoutProduitComponent,
-   
     ProfileComponent,
     SignupUpPageComponent,
     LoginPageComponent,
