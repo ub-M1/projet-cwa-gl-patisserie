@@ -1,0 +1,37 @@
+<div class="detail">
+    <div class="detail-header">
+        <h1 class="detail-header__title">Commande #{{orderId}}</h1>
+        <h1 class="detail-header__total">Total: €{{productsOrder[0].price}}</h1>
+    </div>
+
+    <div class="container-info">
+        <div>
+            <div class="detail-info" *ngFor="let ol of productsOrder">
+                <img class="detail-info__image" src="{{ol.product.image}}">
+                <div class="detail-info__main">
+                    <p class="detail-info__name">{{ol.product.designation}}</p>
+                    <p class="detail-info__price">€{{ol.product.prixunitaire}}</p>
+                </div>
+                <p class="detail-info__quantity">Quantité<br><span>{{ol.quantity}}</span></p>
+                <p class="detail-info__price-product">€{{ol.product.prixunitaire * ol.quantity}}</p>
+            </div>
+        </div>
+        <div>
+            <div class="detail-user">
+                <p class="detail-user__title">Details d'expedition</p>
+                <p class="detail-user__name">{{productsOrder[0].order.idClient.nom}} {{productsOrder[0].order.idClient.prenom}}</p>
+                <p class="detail-user__tel">{{productsOrder[0].order.idClient.tel}}</p>
+                <p class="detail-user__email">{{productsOrder[0].order.idClient.email}}</p>
+            </div>
+
+            <select name="state" [(ngModel)]="selectedOption">
+                <option *ngFor="let option of options" [ngValue]="option" [selected]="option == 'Livrée'">{{option}}</option>
+            </select>
+            <button class="detail-actions__change-state" (click)="changeState(selectedOption || '')">Changer état</button>
+        </div>
+    </div>
+
+    <div class="detail-actions">
+        <button class="detail-actions__return" (click)="goBack()">Retour</button>
+    </div>
+</div>

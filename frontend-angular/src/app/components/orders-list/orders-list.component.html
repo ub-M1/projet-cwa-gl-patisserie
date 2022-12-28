@@ -1,6 +1,6 @@
 <div class="list-commandes">
     <h1 class="list-commandes__title">Commandes</h1>
-    <div [routerLink]="[]" class="card" *ngFor="let order of ordersList">
+    <div class="card" *ngFor="let order of ordersList" [routerLink]="[link, order.id]">
         <app-icon-square [height]=85 [width]=82 [icon]="icon"></app-icon-square>
         <div class="card-information">
             <h2 class="card-information__id">Commande #{{order.id}}</h2>
