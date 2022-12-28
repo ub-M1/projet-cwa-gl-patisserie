@@ -23,7 +23,7 @@ export class ApiService {
     return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/all/all`).pipe(
       map((data: any[]) => data.map((item) => {
         let p: Product = new Product(item)
-            if(!p.image?.includes('http') || !p.image?.includes('data:image')){
+            if(!p.image?.includes('base64') && !p.image?.includes('http')){
               p.image = "assets/img/"+p.image
             }
             return p;
@@ -43,7 +43,7 @@ export class ApiService {
     return this.httpClient.get<any>(`${this.BASE_URL}/getProduit/detail/${id}`).pipe(
       map((data: any[]) => data.map((item) => {
         let p: Product = new Product(item)
-            if(!p.image?.includes('http') || !p.image?.includes('data:image')){
+            if(!p.image?.includes('http') && !p.image?.includes('data:image')){
               p.image = "assets/img/"+p.image
             }
             return p;
