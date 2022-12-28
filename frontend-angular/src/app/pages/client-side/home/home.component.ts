@@ -74,11 +74,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getProductsList().subscribe(
       (response)=>{
         console.log('response :>> ', response);
-        this.produitsList = response.map( (product: any) =>{
-          let p: Product = new Product(product)
-          p.image = "assets/images/image1.jpg"
-          return p;
-        })
+        this.produitsList = response
       },
       (error) => {
         console.error(error)

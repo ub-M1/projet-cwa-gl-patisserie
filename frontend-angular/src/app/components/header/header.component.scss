@@ -9,9 +9,13 @@
     // background-color: #eedaff;
     
     .left{
-        border: 2px solid gray;
-        border-radius: 25px;
+        // border: 2px solid gray;
+        // border-radius: 25px;
         padding: 25px;
+
+        img{
+            width: 100px;
+        }
     }
     .right{
         ul{

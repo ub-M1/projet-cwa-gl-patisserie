@@ -57,7 +57,7 @@ export class ProductsListComponent implements OnInit {
           console.log('response :>> ', response);
           this.produitsList = response.map( (product: any) =>{
             let p: Product = new Product(product)
-            p.image = "assets/images/image1.jpg"
+            // p.image = "assets/images/image1.jpg"
             return p;
           })
         },
