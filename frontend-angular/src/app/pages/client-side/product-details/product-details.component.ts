@@ -29,7 +29,9 @@ export class ProductDetailsComponent implements OnInit {
         (response) => {                           //Next callback
           console.log('response received')
           console.log('response :>> ', response[0]);
-          this.product = new Product(response[0])
+          this.product = response[0]
+          console.log('this.product :>> ', this.product);
+
         },
         (error) => {//Error callback
           console.error('error caught in component', error)
@@ -38,7 +40,6 @@ export class ProductDetailsComponent implements OnInit {
         }
   )
 
-    console.log('this.product :>> ', this.product);
   }
 
   addOne(){

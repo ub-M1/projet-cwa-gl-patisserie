@@ -39,6 +39,7 @@ export class Cart {
         //  Si le produit était déja dans le panier on incrémente a quantité avec qty. Par défault qty = 1. Mais lors de l'appel de la fonction on peu spécifier la quantité qu'on veut.
         //  Si la quantité est fournie laors on n'incrémente pas mais on met qty comme quantité
         let ci = this.getCartItem(product._id)
+        console.log('ci :>> ', ci);
         if(ci != null){
             if (!ci.isMaxQtyReached()){
                 ci.quantite ++;

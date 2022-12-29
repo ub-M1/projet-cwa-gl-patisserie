@@ -75,14 +75,17 @@ import { Observable } from 'rxjs';
     return this.http.get<any>(this.URL+'/getClient/');
   }
 
-  setUser(user: User){
+  setUser(user: any){
     this.user = user
+    this.user = user.userId
+
     localStorage.setItem('user', JSON.stringify(this.user))
     console.log('this.user :>> ', this.user);
   }
 
-  setCLient(client: User){
+  setCLient(client: any){
     this.client = client
+    this.client!.id = client.idClient
     localStorage.setItem('client', JSON.stringify(this.client))
     console.log('this.client :>> ', this.client);
   }

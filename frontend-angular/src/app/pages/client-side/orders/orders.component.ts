@@ -19,7 +19,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.userService.user){
-      this.orderService.getOrdersByClientId(this.userService.user?.id).subscribe(
+      this.orderService.getOrdersByClientId(this.userService.client!.id).subscribe(
         (orders: Order[]) => {
           this.ordersList = orders
       });

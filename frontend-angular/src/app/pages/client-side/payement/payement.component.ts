@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { CartService } from 'src/app/services/cart.service';
+import { UserService } from 'src/app/services/userservice.service';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -32,7 +33,8 @@ export class PayementComponent implements OnInit {
 
   ordercount= 0;
 
-  constructor(private cartService: CartService, private router: Router, private apiService: ApiService) { }
+  constructor(private cartService: CartService, private router: Router, private apiService: ApiService, private userService: UserService
+    ) { }
 
   onSubmit(){
     // make requet to create order
@@ -60,7 +62,7 @@ export class PayementComponent implements OnInit {
         "adresseLivraison": `${this.adresseData.fullname}|${this.adresseData.email}|${this.adresseData.tel}|${this.adresseData.codePostal}|${this.adresseData.ville}`,
         "etat": "cours",
         "idClient": {
-          "idClient": 2
+          "idClient": this.userService.client?.id
         }
     }
 
@@ -114,6 +116,7 @@ export class PayementComponent implements OnInit {
             confirmButtonText: 'Cool'
           })
           Swal.hideLoading()
+          this.cartService.clear()
           this.router.navigateByUrl('my-orders')
 
         }
