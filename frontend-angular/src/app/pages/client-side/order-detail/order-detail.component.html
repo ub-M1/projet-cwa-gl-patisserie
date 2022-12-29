@@ -15,6 +15,6 @@
     </div>
     <div class="detail-actions">
         <button class="detail-actions__return" (click)="goBack()">Retour</button>
-        <button [disabled]="productsOrder[0].order.state === 'anulée'" class="detail-actions__cancel" (click)="changeOrderState()">Annuler Commande</button>
+        <button [disabled]="disabledButton" class="detail-actions__cancel" (click)="changeOrderState()">Annuler Commande</button>
     </div>
 </div>

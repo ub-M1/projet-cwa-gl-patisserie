@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { OrderLineService } from '../../../services/order-line.service';
 import { OrderService } from 'src/app/services/order.service';
 import { Location } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order-detail',
@@ -13,6 +14,7 @@ export class OrderDetailComponent implements OnInit {
 
   orderId: number = 0;
   productsOrder: any[] = [];
+  disabledButton: boolean = false;
 
   constructor(private orderLineService: OrderLineService, private orderService: OrderService, private route: ActivatedRoute, private location: Location) { }
 
@@ -21,7 +23,8 @@ export class OrderDetailComponent implements OnInit {
 
     this.orderLineService.getOrderLinesByOrderId(this.orderId).subscribe(
       (productsOrder: any[]) => {
-        this.productsOrder = productsOrder
+        this.productsOrder = productsOrder;
+        this.disabledButton = productsOrder[0].order.state === 'annulée';
       }
     )
   }
@@ -31,7 +34,20 @@ export class OrderDetailComponent implements OnInit {
   }
 
   changeOrderState(){
-    this.orderService.changeOrderState(this.orderId, "anulée").subscribe();
+    Swal.fire({
+      title: `Etes-vous sûr de vouloir annuler la commande?`,
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      denyButtonText: `Non`,
+      icon: 'info',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.orderService.changeOrderState(this.orderId, "annulée").subscribe(()=>{
+          Swal.fire('Enregistré!', '', 'success');
+          this.disabledButton = true;
+        });
+      }
+    });
   }
-
 }
