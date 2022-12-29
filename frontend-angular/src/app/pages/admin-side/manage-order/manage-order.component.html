@@ -25,7 +25,7 @@
             </div>
 
             <select name="state" [(ngModel)]="selectedOption">
-                <option *ngFor="let option of options" [ngValue]="option" [selected]="option == 'Livrée'">{{option}}</option>
+                <option *ngFor="let option of options">{{option}}</option>
             </select>
             <button class="detail-actions__change-state" (click)="changeState(selectedOption || '')">Changer état</button>
         </div>

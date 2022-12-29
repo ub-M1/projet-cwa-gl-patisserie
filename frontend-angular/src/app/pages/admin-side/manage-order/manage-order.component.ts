@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { OrderLineService } from '../../../services/order-line.service';
 import { OrderService } from 'src/app/services/order.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-manage-order',
   templateUrl: './manage-order.component.html',
@@ -38,10 +39,22 @@ export class ManageOrderComponent implements OnInit {
   }
 
   changeState(option: string){
-    this.orderService.changeOrderState(this.orderId, option.toLowerCase()).subscribe(
-      ()=>{
-        this.selectedOption =  option;
+    Swal.fire({
+      title: `Etes-vous sûr de vouloir changer l'état de la commande?`,
+      showDenyButton: false,
+      showCancelButton: true,
+      confirmButtonText: 'Oui',
+      denyButtonText: `Non`,
+      icon: 'info',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.orderService.changeOrderState(this.orderId, option.toLowerCase()).subscribe(
+          () => {
+            this.selectedOption =  option
+            Swal.fire('Enregistré!', '', 'success')
+          }
+        );
       }
-    );
+    });
   }
 }
