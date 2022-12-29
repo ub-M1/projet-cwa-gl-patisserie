@@ -77,7 +77,7 @@ import { Observable } from 'rxjs';
 
   setUser(user: any){
     this.user = user
-    this.user = user.userId
+    this.user!.id = user.userId
 
     localStorage.setItem('user', JSON.stringify(this.user))
     console.log('this.user :>> ', this.user);
@@ -85,9 +85,13 @@ import { Observable } from 'rxjs';
 
   setCLient(client: any){
     this.client = client
-    this.client!.id = client.idClient
-    localStorage.setItem('client', JSON.stringify(this.client))
-    console.log('this.client :>> ', this.client);
+    // admin n'a pa des de client
+    if(client){
+      this.client!.id = client.idClient
+      localStorage.setItem('client', JSON.stringify(this.client))
+      console.log('this.client :>> ', this.client);
+    }
+    
   }
 
   isAuth(){

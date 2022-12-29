@@ -36,7 +36,7 @@ export class ApiService {
   }
 
   getProducstByCategory(cat: Category) {
-    return this.httpClient.get<Category[]>(`${this.BASE_URL}/getProduit/byCategory/${cat.nomcategorie}`);
+    return this.httpClient.get<Product[]>(`${this.BASE_URL}/getProduit/byCategory/${cat.nomcategorie}`);
   }
 
   getProduct(id: any) {

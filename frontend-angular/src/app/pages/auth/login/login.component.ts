@@ -58,8 +58,10 @@ getClient(user: any)
 
 this.userService.getClient(user.idUser).subscribe({
   next: client => {
+    if(!this.userService.isAdmin()){
       this.userService.setCLient(client[0])
-      this.gotoNextPage(user.role)
+    }
+    this.gotoNextPage(user.role)
       
   },
   error: error => {
