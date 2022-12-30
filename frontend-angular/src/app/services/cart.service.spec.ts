@@ -11,6 +11,10 @@ describe('CartService', () => {
     service = TestBed.inject(CartService);
   });
 
+  afterEach(() => {
+    service.clear();
+  })
+
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
@@ -31,7 +35,7 @@ describe('CartService', () => {
       image: 'http://sqjcndkj.png',
       categorie: "je"
     });
-    service.add(p)
+    service.add(p);
 
     expect(service.cart.value.cart_item.length).toEqual(1);
     expect(service.cart.value.getCount()).toEqual(1);
@@ -47,7 +51,7 @@ describe('CartService', () => {
 
   });
 
-  it('should add new product with quatity', () => {
+  it('should add new product with quantity', () => {
     let p = new Product({
       id:1,
       designation: 'test',
@@ -57,7 +61,7 @@ describe('CartService', () => {
       categorie: "je",
       quantitemax: 50
     });
-    service.addMany(p, 10)
+    service.addMany(p, 10);
 
     expect(service.cart.value.cart_item.length).toEqual(1);
     expect(service.cart.value.getCount()).toEqual(1);
@@ -85,16 +89,16 @@ describe('CartService', () => {
       categorie: "je"
     });
 
-    service.add(p2)
-    service.add(p1)
-    service.add(p2)
+    service.add(p1);
+    service.add(p2);
+    service.add(p2);
 
     expect(service.cart.value.cart_item.length).toEqual(2);
     expect(service.cart.value.getCount()).toEqual(2);
     expect(service.cart.value.getTotalPrice()).toEqual(32);
     expect(service.cart.value.getCartItem(p1._id)?.quantite).toEqual(1);
     expect(service.cart.value.getCartItem(p2._id)?.quantite).toEqual(2);
-
+ 
   });
 
 
@@ -117,11 +121,11 @@ describe('CartService', () => {
       categorie: "je"
     });
 
-    service.add(p2)
-    service.add(p1)
-    service.add(p2)
+    service.add(p2);
+    service.add(p1);
+    service.add(p2);
 
-    service.decrease(p2)
+    service.decrease(p2);
 
     expect(service.cart.value.cart_item.length).toEqual(2);
     expect(service.cart.value.getCount()).toEqual(2);
@@ -129,7 +133,8 @@ describe('CartService', () => {
     expect(service.cart.value.getCartItem(p1._id)?.quantite).toEqual(1);
     expect(service.cart.value.getCartItem(p2._id)?.quantite).toEqual(1);
 
-    service.decrease(p2)
+    service.decrease(p2);
+    service.update();
 
     expect(service.cart.value.cart_item.length).toEqual(1);
     expect(service.cart.value.getCount()).toEqual(1);
@@ -159,11 +164,11 @@ describe('CartService', () => {
       categorie: "je"
     });
 
-    service.add(p2)
-    service.add(p1)
-    service.add(p2)
+    service.add(p2);
+    service.add(p1);
+    service.add(p2);
 
-    service.clear()
+    service.clear();
 
     expect(service.cart.value.cart_item.length).toEqual(0);
     expect(service.cart.value.getCount()).toEqual(0);

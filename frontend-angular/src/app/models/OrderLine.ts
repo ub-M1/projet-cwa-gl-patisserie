@@ -19,7 +19,7 @@ export class OrderLine{
         this.product = order.idProduit;
         if(!this.product.image?.includes('http') && !this.product.image?.includes('data:image')){
             this.product.image = "assets/img/"+this.product.image
-          }
+        }
     }
 }
 

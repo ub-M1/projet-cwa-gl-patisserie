@@ -28,6 +28,8 @@ describe('ProfileComponent', () => {
 
     fixture = TestBed.createComponent(ProfileComponent);
     component = fixture.componentInstance;
+    component.user = mockUser;
+    component.client = mockUser;
     fixture.detectChanges();
   });
 
@@ -37,20 +39,14 @@ describe('ProfileComponent', () => {
 
   it('should show title of the component', ()=>{
     let title = fixture.nativeElement.querySelector('.client-profile__title').textContent;
-    expect(title).toContain(mockUser.prenom+" "+mockUser.nom);
+    expect(title).toContain(mockUser.nom + " " + mockUser.prenom);
   });
 
   it('should show client information', ()=>{
-    let pTags = fixture.nativeElement.querySelectorAll('p');
-    let h2Tags = fixture.nativeElement.querySelectorAll('h2');
+    let inputTags = fixture.nativeElement.querySelectorAll('.input');
+    let labelTags = fixture.nativeElement.querySelectorAll('.input > label');
 
-    expect(pTags.length).toBe(3);
-    expect(h2Tags.length).toBe(3);
+    expect(inputTags.length).toBe(5);
+    expect(labelTags.length).toBe(5);
   });
-
-  it('should show button', ()=>{
-    let button = fixture.nativeElement.querySelector('button');
-    expect(button).not.toBeNull();
-    expect(button.textContent).toContain('Modifier');
-  })
 });

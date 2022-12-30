@@ -12,8 +12,6 @@ export class CartService {
   public cart : BehaviorSubject<Cart> = new BehaviorSubject<Cart>(new Cart());
   public cartData!: Cart;
 
-
-
   constructor() {
 
     this.cart.subscribe(panier => {
