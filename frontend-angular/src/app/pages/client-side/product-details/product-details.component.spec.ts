@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -10,11 +11,20 @@ describe('ProductDetailsComponent', () => {
   let route: ActivatedRoute;
   let fixture: ComponentFixture<ProductDetailsComponent>;
   
+  const mockProduct: Product = {
+    _id: 5,
+    designation: 'test',
+    prixunitaire: 12,
+    description: 'jdnckj',
+    image: 'image.jpg',
+    categorie: "je",
+    quantitemax: 5
+  }
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ ProductDetailsComponent ],
-      imports: [RouterTestingModule],
+      imports: [RouterTestingModule, HttpClientTestingModule],
       
     })
     .compileComponents();
@@ -23,6 +33,7 @@ describe('ProductDetailsComponent', () => {
 
     route = TestBed.inject(ActivatedRoute);
     component = fixture.componentInstance;
+    component.product = mockProduct;
     fixture.detectChanges();
   });
 
@@ -32,32 +43,22 @@ describe('ProductDetailsComponent', () => {
 
   it('should render product info', () => {
     expect(component.product).toBeTruthy();
-
-    component.product = new Product({
-      id: 5,
-      designation: 'test',
-      prixunitaire: 12,
-      description: 'jdnckj',
-      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palmeras_de_hojaldre_1.jpg/280px-Palmeras_de_hojaldre_1.jpg',
-      categorie: "je",
-      quantitemax: 5
-    })
-    expect(component.product._id).toEqual(5);
+    expect(mockProduct._id).toEqual(5);
 
     for (let i = 0; i < 5; i++) {
       component.addOne()
     }
 
-    expect(component.cart.isProductInCart(component.product._id)).toBeTruthy();
-    expect(component.cart.getCartItemCount(component.product._id)).toEqual(5);
+    expect(component.cart.isProductInCart(mockProduct._id)).toBeTruthy();
+    expect(component.cart.getCartItemCount(mockProduct._id)).toEqual(5);
 
     let p = fixture.nativeElement.querySelector('p');
     let pu = fixture.nativeElement.querySelector('#pu');
     let name = fixture.nativeElement.querySelector('#name');
     let img = fixture.nativeElement.querySelector('#img');
-    expect(p.textContent).toContain(component.product.description);
-    expect(pu.textContent).toContain(component.product.prixunitaire);
-    expect(name.textContent).toContain(component.product.designation);
-    expect(img.src).toContain(component.product.image);
+    expect(p.textContent).toEqual(mockProduct.description);
+    expect(pu.textContent).toContain(mockProduct.prixunitaire);
+    expect(name.textContent).toContain(mockProduct.designation);
+    expect(img.src).toContain(mockProduct.image);
   });
 });
