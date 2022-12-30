@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
 import { User } from '../../../models/User';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -20,6 +21,7 @@ describe('ProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
       declarations: [ ProfileComponent ]
     })
     .compileComponents();
