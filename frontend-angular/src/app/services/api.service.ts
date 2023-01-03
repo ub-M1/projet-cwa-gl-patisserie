@@ -52,7 +52,7 @@ export class ApiService {
   }
 
   deleteProduct(id: any) {
-    return this.httpClient.get<any>(`${this.BASE_URL}/deleteProduct/${id}`);
+    return this.httpClient.delete<any>(`${this.BASE_URL}/deleteProduit/${id}`);
   }
 
   postOrder(order: any) {
