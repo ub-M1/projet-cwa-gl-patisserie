@@ -77,7 +77,7 @@ import { Observable } from 'rxjs';
 
   setUser(user: any){
     this.user = user
-    this.user!.id = user.userId
+    // this.user!.id = user.userId
 
     localStorage.setItem('user', JSON.stringify(this.user))
     console.log('this.user :>> ', this.user);

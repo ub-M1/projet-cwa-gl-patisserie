@@ -12,35 +12,7 @@ import { ProduitServiceService } from 'src/app/services/produit-service.service'
 export class ProductsListComponent implements OnInit {
   pro:Product[] | undefined;
   subPs!: Subscription;
-  produitsList:Product[]=[
-    {
-      _id: 1,
-      designation: "Orientale",
-      prixunitaire: 12.0,
-      image: "img-ori",
-      quantitemax: 23,
-      description: "description pizza nu",
-      categorie:'sgs'
-    },
-    {
-      _id: 2,
-      designation: "Orientale",
-      prixunitaire: 12.0,
-      image: "img-ori",
-      quantitemax: 23,
-      description: "description pizza nu",
-      categorie:'sgs'
-    },
-    {
-      _id: 1,
-      designation: "Orientale",
-      prixunitaire: 12.0,
-      image: "img-ori",
-      quantitemax: 23,
-      description: "description pizza nu",
-      categorie:'sgs'
-    }
-]
+  produitsList:Product[]=[]
   constructor(private ap:ProduitServiceService, private apiService: ApiService) { }
 
   ngOnInit(): void {
@@ -55,11 +27,20 @@ export class ProductsListComponent implements OnInit {
       this.apiService.getProductsList().subscribe(
         (response)=>{
           console.log('response :>> ', response);
-          this.produitsList = response.map( (product: any) =>{
-            let p: Product = new Product(product)
-            // p.image = "assets/images/image1.jpg"
-            return p;
-          })
+          this.produitsList = response
+        },
+        (error) => {
+          console.error(error)
+        }
+      )
+    }
+
+    deleteProduct(product: Product){
+      console.log('id :>> ', product._id);
+      this.apiService.deleteProduct(product._id).subscribe(
+        (response)=>{
+          console.log('response :>> ', response);
+          this.getProducts()
         },
         (error) => {
           console.error(error)

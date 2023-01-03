@@ -34,7 +34,12 @@ export class PayementComponent implements OnInit {
   ordercount= 0;
 
   constructor(private cartService: CartService, private router: Router, private apiService: ApiService, private userService: UserService
-    ) { }
+    ) { 
+
+      this.adresseData.fullname = this.userService.client!.nom + " " + this.userService.client!.prenom
+      this.adresseData.email = this.userService.client!.email
+      this.adresseData.tel = this.userService.client!.tel
+    }
 
   onSubmit(){
     // make requet to create order
@@ -48,7 +53,15 @@ export class PayementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+    console.log('this.userService.client :>> ', this.userService.client);
+
+      this.adresseData.fullname = this.userService.client!.nom + " " + this.userService.client!.prenom
+      this.adresseData.email = this.userService.client!.email
+      this.adresseData.tel = this.userService.client!.tel
+
+      console.log('this.adresseData :>> ', this.adresseData);
+      
+
         
   }
 

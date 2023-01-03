@@ -1,7 +1,7 @@
 <div class="flex justify-center i" >
-    <form #f="ngForm" (ngSubmit)="Ajout(f)">
+    <form >
         <div class="h1"><h1>Ajouter un Produit</h1></div>
-          <div>
+          <div >
               <input type="file" name="file" id="file" class="inputfile"  (change)="uploadImage($event)"  >
               <label for="file">Image<br><img [src]="imageBlob"></label>
           </div>
@@ -28,9 +28,11 @@
               <label value="quantité">Quantité max</label>
               <input class="q" type="texte" name="quantité" [(ngModel)]="quantitemax">
           </div>
-          <div class="button">
-              <button type="" (click)="addProduct()" >Créer le Produit</button>
+          <div class="flex justify-center">
+            <app-button class="mt-5" (click)="addProduct()" [clear]="false" label="Créer le Produit"></app-button>
+
           </div>
+          
     
       </form>
 </div>

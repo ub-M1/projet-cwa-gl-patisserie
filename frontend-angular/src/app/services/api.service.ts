@@ -51,6 +51,10 @@ export class ApiService {
     );;
   }
 
+  deleteProduct(id: any) {
+    return this.httpClient.get<any>(`${this.BASE_URL}/deleteProduct/${id}`);
+  }
+
   postOrder(order: any) {
     return this.httpClient.post<any>(`${this.BASE_URL}/addCommande`, order);
   }

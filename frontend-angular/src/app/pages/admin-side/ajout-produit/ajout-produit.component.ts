@@ -42,21 +42,7 @@ export class AjoutProduitComponent implements OnInit {
   ngOnInit(): void {
     this.getCategories()
   }
-Ajout(f:NgForm){
- const id=this.ap.getProducts().value.length;
 
- 
-  let designation=this.nom;
-  let categorie=this.c;
-  let prixunitaire=this.prix;
-  let image=this.imageUrl;
-  let description= this.textarea.nativeElement.value;;
-  
-  const text = this.textarea.nativeElement.value;
-  let p= new Product({id,designation,prixunitaire,image,description,categorie});
-  this.ap.AjoutProduit(p);
- 
-}
 updateFileText(text: string) {
   this.fileText = text;
 
@@ -99,18 +85,17 @@ getCategories(){
   )
 }
 
-getSelectedCategori(): Category{
+getSelectedCategori(): Category | null{
   let cat: Category[] = this.categories.filter((c: Category) => c.nomcategorie==this.categorie.nomcategorie )
 
   if(cat.length!=0){
-    return cat[0];
+    this.categorie = cat[0]
+    return this.categorie;
   }
-  
-  // this.addCategorie()
-  return this.categorie
+  return null
 }
 
-addCategorie() {
+addCategorieBeforContinue() {
   this.apiService.addCategorie({nomcategorie: this.categorie.nomcategorie}).subscribe(
     (response)=>{
       console.log('response categori :>> ', response);
@@ -118,6 +103,7 @@ addCategorie() {
         idCategorie: response,
         nomcategorie: this.categorie.nomcategorie
       }
+      this.addProductRequest()
     },
     (error) => {
       console.error(error)
@@ -127,15 +113,24 @@ addCategorie() {
 
 addProduct(){
 
-  
-  
+  let idCategori = this.getSelectedCategori()
+  if(idCategori == null){
+    this.addCategorieBeforContinue()
+  } else{
+    this.addProductRequest()
+  }
+
+}
+
+
+addProductRequest(){
   let product = {
     "designation": this.nom,
     "prixunitaire": this.prix,
     "image": this.imageBlob,
     "quantitemax": this.quantitemax,
     "description": this.description,
-    "idCategorie": this.getSelectedCategori()
+    "idCategorie": this.categorie
   }
 
   this.apiService.addProduct(product).subscribe(
