@@ -3,7 +3,7 @@
     <h1 class="font-bold" *ngIf="category" >{{category.nomcategorie}}</h1>
     <h1 class="font-bold" *ngIf="!category" >Produits</h1>
     
-    <input class="searchbar" [(ngModel)]="searchterm" type="text">
+    <app-search-bar (onSearch)="onSearch($event)" ></app-search-bar>
   </div>
   <div class="grid grid-cols-4 gap-4 ">
     <div *ngFor="let p of productBySearch()" class="cursor-pointer card flex flex-col p-2 m-5"  (click)="gotodetail(p)">

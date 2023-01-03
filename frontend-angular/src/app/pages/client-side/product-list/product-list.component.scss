@@ -6,10 +6,12 @@
 .wrapper{
   background: rgba(239, 239, 239, 0.42);
   border-radius: 17px 17px 0px 0px;
+  min-width: 100%;
+
 
   .card{
-    width: 400px;
-    height: 455px;
+    width: 370px;
+    height: 405px;
     background: #FFFFFF;
     border-radius: 20px;
 

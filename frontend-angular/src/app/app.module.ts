@@ -31,6 +31,7 @@ import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-pag
 import { LoginPageComponent } from './pages/auth/login-page/login-page.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './pages/contact/contact.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 
@@ -61,7 +62,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     ProfileComponent,
     SignupUpPageComponent,
     LoginPageComponent,
-    ContactComponent
+    ContactComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

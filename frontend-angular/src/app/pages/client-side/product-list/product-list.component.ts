@@ -41,6 +41,12 @@ export class ProductListComponent implements OnInit {
     this.router.navigateByUrl('product/'+p._id)
   }
 
+  onSearch(event: string){
+    console.log('event :>> ', event);
+    this.searchterm = event
+    
+  }
+
   productBySearch(){
     return this.list.filter((p) => p.designation?.toLowerCase().includes(this.searchterm.toLowerCase()))
   }

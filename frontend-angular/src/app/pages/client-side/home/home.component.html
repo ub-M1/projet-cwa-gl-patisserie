@@ -2,13 +2,13 @@
   
   
 
-  <div class="flex" >
+  <div class="flex">
     <div class="flex flex-col w-48 mt-10">
       <span class="category cursor-pointer" (click)="filterbycat(c)" *ngFor="let c of categories" >
         {{c.nomcategorie}}
       </span>
     </div>
     <div class="flex-4">
-      <app-product-list [list]="produitsList" [category]="currentCategory" ></app-product-list>
+      <app-product-list style="min-width: 100%;" [list]="produitsList" [category]="currentCategory" ></app-product-list>
     </div>
   </div>

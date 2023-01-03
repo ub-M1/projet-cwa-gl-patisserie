@@ -1,0 +1,6 @@
+<div class="flex">
+    <input class="searchbar" placeholder="Rechercher" [(ngModel)]="searchterm" (keyup.enter)="search()" type="text">
+    <div  (click)="search()" class="bg-white rounded-full border-slate-300 border text-center w-12 h-12 p-3 ml-2 cursor-pointer">
+        <img src="../../../assets/icons/search.png"/>
+    </div>
+</div>
