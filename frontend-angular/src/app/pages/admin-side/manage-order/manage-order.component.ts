@@ -20,6 +20,7 @@ export class ManageOrderComponent implements OnInit {
     "livrée",
     "annulée"
   ];
+  total: number = 0;
 
   constructor(private orderService: OrderService, private orderLineService: OrderLineService, private route: ActivatedRoute, private location: Location) { }
 
@@ -30,12 +31,19 @@ export class ManageOrderComponent implements OnInit {
       (productsOrder: any[]) => {
         this.productsOrder = productsOrder;
         this.selectedOption = productsOrder[0].order.state;
+        this.calculateTotal();
       }
     )
   }
 
   goBack(){
     this.location.back();
+  }
+
+  calculateTotal(){
+    this.productsOrder.forEach((order) => {
+      this.total += order.price * order.quantity;
+    })
   }
 
   changeState(option: string){

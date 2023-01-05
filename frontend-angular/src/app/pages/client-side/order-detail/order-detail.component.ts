@@ -15,6 +15,7 @@ export class OrderDetailComponent implements OnInit {
   orderId: number = 0;
   productsOrder: any[] = [];
   disabledButton: boolean = false;
+  total: number = 0;
 
   constructor(private orderLineService: OrderLineService, private orderService: OrderService, private route: ActivatedRoute, private location: Location) { }
 
@@ -24,13 +25,21 @@ export class OrderDetailComponent implements OnInit {
     this.orderLineService.getOrderLinesByOrderId(this.orderId).subscribe(
       (productsOrder: any[]) => {
         this.productsOrder = productsOrder;
+        console.log("aquiii", productsOrder);
         this.disabledButton = productsOrder[0].order.state === 'annulée';
+        this.calculateTotal();
       }
     )
   }
 
   goBack(){
     this.location.back();
+  }
+
+  calculateTotal(){
+    this.productsOrder.forEach((order) => {
+      this.total += order.price * order.quantity;
+    })
   }
 
   changeOrderState(){

@@ -56,6 +56,7 @@
         }
         &__name{
             font-weight: var.$bold;
+            width: 180px;
         }
         &__price{
             color: var.$font-grey

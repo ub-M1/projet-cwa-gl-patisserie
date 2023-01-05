@@ -1,22 +1,23 @@
-<div class="wrapper " >
-  <div class="flex flex-row justify-between p-10">
+<div class="products-container">
+  <div class="products-container__header flex flex-row justify-between">
     <h1 class="font-bold" *ngIf="category" >{{category.nomcategorie}}</h1>
     <h1 class="font-bold" *ngIf="!category" >Produits</h1>
     
     <app-search-bar (onSearch)="onSearch($event)" ></app-search-bar>
   </div>
-  <div class="grid grid-cols-4 gap-4 ">
-    <div *ngFor="let p of productBySearch()" class="cursor-pointer card flex flex-col p-2 m-5"  (click)="gotodetail(p)">
+  <div class="products-container__cards grid grid-cols-4 gap-4 ">
+    <div *ngFor="let p of productBySearch()" class="cursor-pointer product-card flex flex-col p-2"  (click)="gotodetail(p)">
       <img [src]="p.image" alt="">
       <div class="flex justify-between mt-2">
-        <span class="font-bold">{{p.designation}}</span>
+        <span class="font-bold product-card__name">{{p.designation}}</span>
         <span class="font-bold">€ {{p.prixunitaire}}</span>
       </div>
     </div>
   </div>
 
-  <div class="flex justify-center font-bold" *ngIf="productBySearch().length == 0" >
-      Il n'y a pas de produits
+  <div class="flex justify-center font-bold no-results" *ngIf="productBySearch().length == 0" >
+    <img src="../../../assets/icons/no-results.png" alt="" />
+    Il n'y a pas de produits
   </div>
  
 </div>
