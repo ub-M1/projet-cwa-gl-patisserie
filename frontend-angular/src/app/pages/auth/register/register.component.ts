@@ -56,8 +56,8 @@ export class RegisterComponent implements OnInit {
   
   
   gotoNextPage(){ 
-    // let nextPage = this.route.snapshot.paramMap.get('redirect') || ''
-    this.router.navigateByUrl("login");
+    let nextPage = this.route.snapshot.paramMap.get('redirect') || ''
+    this.router.navigate(["login", nextPage]);
   }
 
 

@@ -36,7 +36,15 @@ export class ApiService {
   }
 
   getProducstByCategory(cat: Category) {
-    return this.httpClient.get<Product[]>(`${this.BASE_URL}/getProduit/byCategory/${cat.nomcategorie}`);
+    return this.httpClient.get<Product[]>(`${this.BASE_URL}/getProduit/byCategory/${cat.nomcategorie}`).pipe(
+      map((data: any[]) => data.map((item) => {
+        let p: Product = new Product(item)
+            if(!p.image?.includes('http') && !p.image?.includes('data:image')){
+              p.image = "assets/img/"+p.image
+            }
+            return p;
+      }))
+    );
   }
 
   getProduct(id: any) {

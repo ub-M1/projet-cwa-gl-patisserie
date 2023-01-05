@@ -83,13 +83,19 @@ this.userService.getClient(user.idUser).subscribe({
 gotoNextPage(role: string){
 
   if(role=="CLIENT"){
-    let nextPage = this.route.snapshot.paramMap.get('redirect') || ''
+    let nextPage = this.userService.afterLoginPage || this.route.snapshot.paramMap.get('redirect') || ''
+    this.userService.afterLoginPage = ""
     this.router.navigateByUrl(nextPage);
   } else {
     this.router.navigateByUrl('admin/orders')
   }
+  
 
 
+}
+
+register(){
+  this.router.navigateByUrl("register");
 }
 
 

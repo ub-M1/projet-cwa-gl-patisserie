@@ -7,6 +7,7 @@ import { Cart } from '../models/Cart';
 import { User } from '../models/User';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UrlTree } from '@angular/router';
 
 
 @Injectable({
@@ -53,6 +54,8 @@ import { Observable } from 'rxjs';
 
     user: User | undefined;
     client: User | undefined;
+
+    public afterLoginPage  = ""
   
 
   URL = 'https://api-cwa.up.railway.app';

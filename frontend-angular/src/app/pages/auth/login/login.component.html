@@ -13,7 +13,7 @@
 
         <div class="flex flex-col items-center justify-center my-10 ">
             <app-button (click)="login()" [label]="'Se connecter'"></app-button>
-            <app-button class="mt-5" routerLink="/register" [clear]="true" label="S'inscrire"></app-button>
+            <app-button class="mt-5" (click)="register()"  [clear]="true" label="S'inscrire"></app-button>
         </div>
     </div>
  </div>
