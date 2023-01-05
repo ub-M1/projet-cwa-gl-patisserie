@@ -35,10 +35,12 @@ export class PayementComponent implements OnInit {
 
   constructor(private cartService: CartService, private router: Router, private apiService: ApiService, private userService: UserService
     ) { 
+      if (this.userService.client){
 
       this.adresseData.fullname = this.userService.client!.nom + " " + this.userService.client!.prenom
       this.adresseData.email = this.userService.client!.email
       this.adresseData.tel = this.userService.client!.tel
+      }
     }
 
   onSubmit(){
@@ -54,10 +56,6 @@ export class PayementComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('this.userService.client :>> ', this.userService.client);
-
-      this.adresseData.fullname = this.userService.client!.nom + " " + this.userService.client!.prenom
-      this.adresseData.email = this.userService.client!.email
-      this.adresseData.tel = this.userService.client!.tel
 
       console.log('this.adresseData :>> ', this.adresseData);
       

@@ -12,8 +12,8 @@
         <input type="password" placeholder="Entrer le mot de passe" name="password" required [(ngModel)]="password">
 
         <div class="flex flex-col items-center justify-center my-10 ">
-            <app-button (click)="login()" [label]="'Se connecter'"></app-button>
-            <app-button class="mt-5" (click)="register()"  [clear]="true" label="S'inscrire"></app-button>
+            <app-button (click)="login()" id="btnlogin" [label]="'Se connecter'"></app-button>
+            <app-button class="mt-5" (click)="register()"  [clear]="true" id="btnRegister" label="S'inscrire"></app-button>
         </div>
     </div>
  </div>

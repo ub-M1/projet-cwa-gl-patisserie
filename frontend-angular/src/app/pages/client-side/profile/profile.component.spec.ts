@@ -16,7 +16,9 @@ describe('ProfileComponent', () => {
     username: 'username',
     role: 'admin',
     token:'mytoken1',
-    tel: ""
+    tel: "",
+    idClient:0
+
   }
 
   beforeEach(async () => {
