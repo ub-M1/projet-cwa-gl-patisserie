@@ -226,3 +226,13 @@ footer {
 .category{
   margin: 5px;
 }
+
+.home-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__list{
+    width: 100%;
+  }
+}

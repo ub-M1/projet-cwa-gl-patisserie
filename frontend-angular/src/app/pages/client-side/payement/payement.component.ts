@@ -73,7 +73,7 @@ export class PayementComponent implements OnInit {
     let order = {
         "datecommande": Date.now().toString(),
         "adresseLivraison": `${this.adresseData.fullname}|${this.adresseData.email}|${this.adresseData.tel}|${this.adresseData.codePostal}|${this.adresseData.ville}`,
-        "etat": "cours",
+        "etat": "en cours",
         "idClient": {
           "idClient": this.userService.client?.id
         }

@@ -1,7 +1,7 @@
 <div class="detail">
     <div class="detail-header">
         <h1 class="detail-header__title">Commande #{{orderId}}</h1>
-        <h1 class="detail-header__total">Total: <span>€{{productsOrder[0].price}}</span></h1>
+        <h1 class="detail-header__total">Total: <span>€{{total}}</span></h1>
     </div>
     <p class="detail-header__state" [ngClass]="productsOrder[0].order.state.charAt(0)">{{productsOrder[0].order.state}}</p>
     <div class="detail-info" *ngFor="let ol of productsOrder">

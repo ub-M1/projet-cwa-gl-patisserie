@@ -53,3 +53,17 @@
         }
     }    
 }
+
+.no-results{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0 300px;
+    color: var.$font-grey;
+    font-size: 30px;
+
+    img{
+      width: 100px;
+      margin-bottom: 20px;
+    }
+  }
