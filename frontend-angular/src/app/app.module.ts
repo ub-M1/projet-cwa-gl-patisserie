@@ -32,6 +32,7 @@ import { LoginPageComponent } from './pages/auth/login-page/login-page.component
 import {  ReactiveFormsModule } from '@angular/forms';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { AuthGuardService } from './services/guard';
 
 
 
@@ -72,7 +73,7 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [OrderService],
+  providers: [OrderService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,7 +25,9 @@ describe('OrdersComponent', () => {
         username: '',
         role: '',
         token: '',
-        tel: ""
+        tel: "",
+        idClient:0
+
       }
     },
   ];

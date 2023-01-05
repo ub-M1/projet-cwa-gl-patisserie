@@ -1,6 +1,7 @@
 export class User {
 
     id!: number;
+    idClient: number | undefined;
     nom!: string;
     prenom!: string;
     email!: string;

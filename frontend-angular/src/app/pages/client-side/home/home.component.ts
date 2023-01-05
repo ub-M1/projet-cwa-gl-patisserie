@@ -52,7 +52,9 @@ export class HomeComponent implements OnInit {
 
   categories: Category[] = []
 
-  currentCategory: Category = {idCategorie: 0, nomcategorie:"Meilleures ventes"}
+  homeCategory = {idCategorie: 0, nomcategorie:"Tous les produits"}
+
+  currentCategory: Category = this.homeCategory
 
   constructor(private apiService: ApiService, private router: Router) {
     this.getProducts()
@@ -86,7 +88,8 @@ export class HomeComponent implements OnInit {
     this.apiService.getCategories().subscribe(
       (response)=>{
         console.log('response :>> ', response);
-        this.categories = response
+        this.categories = [this.currentCategory]
+        this.categories = [...this.categories, ...response]
       },
       (error) => {
         console.error(error)
@@ -104,14 +107,15 @@ export class HomeComponent implements OnInit {
 
   filterbycat(cat: Category){
     this.currentCategory = cat
+    let c = cat
+    if(c.idCategorie == 0){
+      this.getProducts()
+      return
+    }
     this.apiService.getProducstByCategory(cat).subscribe(
       (response)=>{
         console.log('response :>> ', response);
-        this.produitsList = response.map( (product: any) =>{
-          let p: Product = new Product(product)
-          p.image = "assets/images/image1.jpg"
-          return p;
-        })
+        this.produitsList = response
       },
       (error) => {
         console.error(error)

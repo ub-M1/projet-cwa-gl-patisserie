@@ -20,6 +20,7 @@ import { LoginPageComponent } from './pages/auth/login-page/login-page.component
 
 import { SignupUpPageComponent } from './pages/auth/signup-up-page/signup-up-page.component';
 import { ClientsListComponent } from './pages/admin-side/clients-list/clients-list.component';
+import { AuthGuardService } from './services/guard';
 
 
 
@@ -33,16 +34,22 @@ const routes: Routes = [
   { path: "admin/orders", component: OrdersListComponent},
   { path: "order-detail/:id", component: OrderDetailComponent},
   { path: "profile", component: ProfileComponent},
-  { path: "admin/orders", component: OrdersListComponent},
-  { path: "admin/manage-order/:id", component: ManageOrderComponent},
-  { path: "admin/liste-product", component: ProductsListComponent},
-  { path: "admin/new-product", component: AjoutProduitComponent},
-  { path: "admin/liste-clients", component: ClientsListComponent},
+  { path: "admin", canActivateChild:[AuthGuardService], children: [
+    { path: "orders", component: OrdersListComponent},
+    { path: "manage-order/:id", component: ManageOrderComponent},
+    { path: "liste-product", component: ProductsListComponent},
+    { path: "new-product", component: AjoutProduitComponent},
+    { path: "liste-clients", component: ClientsListComponent},
+    ]
+  },
+  
 
   //Routes pour authentification
   { path: "login", component: LoginComponent},
   { path: "login/:redirect", component: LoginComponent},
   { path: "register", component: RegisterComponent},
+  { path: "register/:redirect", component: RegisterComponent},
+
   { path: "profile", component: ProfileComponent},
   
   //Routes pour authentification nouvelle version

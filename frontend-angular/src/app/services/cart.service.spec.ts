@@ -9,6 +9,8 @@ describe('CartService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(CartService);
+    localStorage.clear()
+    service.clear()
   });
 
   afterEach(() => {

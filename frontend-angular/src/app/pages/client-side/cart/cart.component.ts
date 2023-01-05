@@ -42,6 +42,8 @@ export class CartComponent implements OnInit {
     } else{
       this.route.navigate(['login', "payement"])
 
+      this.userService.afterLoginPage = "payement"
+
     }
 
 
