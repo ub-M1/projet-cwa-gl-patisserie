@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ng-toolkit
+        working-directory: frontend-angular
 
     strategy:
       matrix:
@@ -23,5 +23,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm run test:prod
+      - run: npm run test
       - run: npm run lint
